@@ -1,0 +1,44 @@
+name: Build and Test
+
+on:
+  push: # run on a push to any branch that does NOT have a tag (we run release.yml instead then)
+    branches: ['**']
+    tags-ignore: ['**']
+ # pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04  # pin OS version to avoid depending on too recent version of libc
+    # defaults:
+      # run: # set cwd for all steps to ./rust by default, but can be overridden
+        # working-directory: ./rust
+    steps:
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a 
+
+      - name: Install just
+        run: pipx install "rust-just==1.58.0"
+
+      - name: Install Nextest
+        uses: taiki-e/install-action@fa23953489c080190314742a9b907f8e97c6767c
+        with:
+          tool: nextest@0.9.144
+
+      - name: Build (release)
+        run: just build-release
+
+      - name: Copy library 
+        run: just copy-so-release
+
+      # TODO install godot, then uncomment this
+      # - name: Run tests (release)
+      #   run: just test-release
+
+      - name: Upload addons folder
+        # working_directory: .
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: crabbyconsole_linux
+          path: godot/addons

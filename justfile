@@ -61,6 +61,11 @@ link-so-debug:
     mkdir -p "godot/addons/crabbyconsole/bin"
     ln -sf "$(realpath rust/target/debug/libcrabbyconsole.so)" "godot/addons/crabbyconsole/bin/libcrabbyconsole.so"
 
+# Copies the .so file for `release` profile, overwriting it if it already exists.
+copy-so-release:
+    mkdir -p "godot/addons/crabbyconsole/bin"
+    cp "$(realpath rust/target/release/libcrabbyconsole.so)" "godot/addons/crabbyconsole/bin/libcrabbyconsole.so"
+
 # Run this in your CI
 generate-cli-docs-debug:
     cd rust && cargo run --profile debug --bin generate-docs
