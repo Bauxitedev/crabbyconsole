@@ -41,12 +41,15 @@ jobs:
       #   with:
       #     python-version: 3.x
 
-      - name: Install uv
-        run: pipx install "uv==0.12.9"
+      - name: Install uv and just
+        run: pipx install "uv==0.12.9" && pipx install "rust-just==1.58.0"
 
       - name: Uv sync
         working-directory: docs/
         run: uv sync --locked
+
+      - name: Generate CLI docs
+        run: just generate-cli-docs-debug
 
       - name: Build site
         working-directory: docs/
