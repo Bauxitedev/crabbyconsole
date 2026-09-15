@@ -21,8 +21,10 @@ watch-rwdi:
 
 ################################
 
-# Import the project, run this first before running any test (if it crashes, run it again)
+# Import the project, run this first before running any test
+# We need two passes here, the first pass needs --recovery-mode to prevent crash, see https://github.com/godotengine/godot/issues/123511
 import-project:
+    godot --path godot --import --headless --recovery-mode 
     godot --path godot --import --headless
 
 # this runs both unit tests and integration tests.
