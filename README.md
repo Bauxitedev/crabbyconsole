@@ -24,7 +24,7 @@ Features:
 - Lightweight: small in filesize, uses little CPU and RAM 
 - AI-free documentation: no LLM output is used in the documentation, it is 100% written by hand
 
-The documentation is available here. [TODO LINK TO DOCUMENTATION]
+[The documentation is available here](https://bauxitedev.github.io/crabbyconsole/). 
 
 A small demo:
 
@@ -111,7 +111,7 @@ There are many more possible commands, run `:help` to explore all of them:
 :help
 ```
 
-Alternatively, read the documentation to see a comprehensive list of all commands. [TODO link to documentation].
+Alternatively, [read the documentation to see a comprehensive list of all commands](https://bauxitedev.github.io/crabbyconsole/crabbyconsole/20_commands/03_commands/).
 
 ## Custom commands
 
@@ -121,7 +121,7 @@ CrabbyConsole.add_custom_command("foo", func(): print("hi"))
 ```
 ...then run `:foo` and it will print `"hi"` to the console.
 
-For more information, refer to section Custom commands in the documentation. [TODO LINK HERE]
+For more information, refer to section [Custom commands in the documentation](https://bauxitedev.github.io/crabbyconsole/crabbyconsole/20_commands/10_custom_commands/).
 
 ## Autocomplete
 
@@ -131,7 +131,7 @@ For example, if you assign a variable named `ball` and then type `ball.` it will
 
 ![Autocomplete](docs/pages/crabbyconsole/20_commands/images/node_autocomplete2.png)
 
-For more information, see section Autocomplete in the documentation. [TODO LINK HERE]
+For more information, see section [Autocomplete in the documentation](https://bauxitedev.github.io/crabbyconsole/crabbyconsole/40_misc/01_autocompletion/).
 
 ## Watching expressions
 
@@ -139,7 +139,7 @@ You can watch any GDScript expression in real time, configure how often it gets 
 
 ![Watch All Signals](docs/pages/crabbyconsole/20_commands/images/watch_signal3.gif)
 
-To set this up, see section Watching expressions in the documentation. [TODO LINK HERE]
+To set this up, see section [Watching expressions in the documentation](https://bauxitedev.github.io/crabbyconsole/crabbyconsole/20_commands/04_watches/).
 
 ## Debug drawing
 
@@ -149,7 +149,7 @@ Here's an example of drawing a `Sprite2D`'s position and scale:
 
 ![Debug drawing](docs/pages/crabbyconsole/20_commands/images/draw_text5.gif)
 
-To set this up, see section Debug drawing in the documentation. [TODO LINK HERE]
+To set this up, see section [Debug drawing in the documentation](https://bauxitedev.github.io/crabbyconsole/crabbyconsole/20_commands/15_debug_draw/).
 
 ## Plotting expressions
 
@@ -161,7 +161,7 @@ For example, here is a plot of `randf()`:
 
 You can use this to plot the frame times of your game, memory usage, VRAM usage, disk usage, etc. Any GDScript expression you can think of works!
 
-To set this up, see section Plotting expressions in the documentation. [TODO LINK HERE]
+To set this up, see section [Plotting expressions in the documentation](https://bauxitedev.github.io/crabbyconsole/crabbyconsole/20_commands/21_plotting/).
 
 ## Platform support
 
@@ -191,13 +191,13 @@ More platforms may be supported in the future.
 
 ## Development
 
-To compile CrabbyConsole yourself, see section Development in the docs. [TODO link to docs]
+To compile CrabbyConsole yourself, see section [Development in the docs](https://bauxitedev.github.io/crabbyconsole/crabbyconsole/40_misc/45_development/).
 
 ## Attribution
 
 CrabbyConsole owes its existence to the contributors who have worked hard on the Godot engine and [godot-rust](https://github.com/godot-rust/gdext); without their hard work, this project could not exist.
 
-For further attribution, see Attribution page in the documentation [TODO LINK HERE].
+For further attribution, see [Attribution page in the documentation](https://bauxitedev.github.io/crabbyconsole/crabbyconsole/40_misc/50_attribution/).
 
 ## License
 

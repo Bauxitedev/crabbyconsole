@@ -1,22 +1,16 @@
 [project]
-site_url = "https://www.example.com/"                                 # TODO put github pages link here
+site_url = "https://bauxitedev.github.io/crabbyconsole/"
 site_name = "CrabbyConsole Documentation"
 site_description = "A feature-packed dev console for your Godot game"
-# site_author = "Your name"
+site_author = "Bauxitedev"
 docs_dir = "pages"
 
 # copyright = "Copyright &copy; 2026 Your name"
 
-# repo_url = "https://github.com/user/repo"
-# repo_name = "user/repo"
+repo_url = "https://github.com/Bauxitedev/crabbyconsole"
+repo_name = "Bauxitedev/crabbyconsole"
 # edit_uri = "edit/main/docs/"
 
-# UNCOMMENT THIS to have a markdown whitelist
-#nav = [{ "Get started" = "index.md" }, { "Markdown in 5min" = "markdown.md" }]
-
-# [project.nav]
-# Home = "index.md"
-# "Advanced Topics" = [{ "Setup" = "10_misc" }]
 
 extra_css = ["stylesheets/extra.css"]
 # extra_javascript = ["javascripts/extra.js"]
@@ -95,10 +89,9 @@ accent = "orange"
 toggle.icon = "lucide/moon"
 toggle.name = "Switch to system preference"
 
-# [[project.extra.social]]
-# icon = "fontawesome/brands/github"
-# link = "https://github.com/user/repo"
-# TODO put github link here
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/Bauxitedev/crabbyconsole"
 
 # [[project.extra.social]]
 # icon = "fontawesome/brands/mastodon"
