@@ -76,10 +76,12 @@ copy-so-release:
     mkdir -p "godot/addons/crabbyconsole/bin"
     cp "$(realpath rust/target/release/libcrabbyconsole.so)" "godot/addons/crabbyconsole/bin/libcrabbyconsole.so"
 
-# Copies the .dll file for `release` profile, overwriting it if it already exists.
+# Copies the .dll file for `release` profile, overwriting it if it already exists. (assumes `x86_64-pc-windows-gnu` target)
+# TODO maybe add an argument here to specify the target (no target = rust/target/release/crabbyconsole.dll)
+# that way, it works on "native" Windows too?
 copy-dll-release:
     mkdir -p "godot/addons/crabbyconsole/bin"
-    cp "$(realpath rust/target/release/crabbyconsole.dll)" "godot/addons/crabbyconsole/bin/crabbyconsole.dll"
+    cp "$(realpath rust/target/x86_64-pc-windows-gnu/release/crabbyconsole.dll)" "godot/addons/crabbyconsole/bin/crabbyconsole.dll"
 
 ################################
 
