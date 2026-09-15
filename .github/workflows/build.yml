@@ -29,6 +29,7 @@ jobs:
           tool: nextest@0.9.143
 
       - name: Build (Linux)
+        timeout-minutes: 5 # prevent wasting CI time if it stalls
         run: just build-release
 
       # important: run this in the `rust` folder, otherwise it doesn't pick up the rust-toolchain.toml file
