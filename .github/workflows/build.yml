@@ -56,9 +56,18 @@ jobs:
           just copy-so-release
           just copy-dll-release
 
-      # TODO install godot, then uncomment this
-      # - name: Run tests (release)
-      #   run: just test-release
+      - name: Install Godot v4.6.2
+        working-directory: /usr/local/bin/
+        run: |
+          wget -O godot.zip "https://downloads.godotengine.org/?version=4.6.2&flavor=stable&slug=linux.x86_64.zip&platform=linux.64"
+          unzip godot.zip
+          rm godot.zip
+          mv Godot_v4.6.2-stable_linux.x86_64 godot
+          # may not be needed, since /usr/local/bin is in PATH already
+          # echo "GODOT4_BIN=$(realpath Godot_v4.6.2-stable_linux.x86_64)" >> "$GITHUB_ENV"
+
+      - name: Run tests (release)
+        run: just test-release
 
       - name: Upload addons folder
         # working-directory: .

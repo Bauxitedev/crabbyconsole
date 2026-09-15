@@ -85,16 +85,16 @@ impl CrabConsoleScriptContext {
             .add_child(&node);
     }
 
-    /// Gets the node at the given `path`
+    /// Gets the node at the given `path`. Returns null if not found.
     #[func]
-    fn get_node(path: String) -> Gd<Node> {
+    fn get_node(path: String) -> Variant {
         // This method is needed since CrabConsoleScriptContext is no longer a Node
         // Note - renaming the method to `node()` seems like a bad idea.
         // You generally want to allow the user to define a variable called `node` without risk of conflicts.
 
         // Get node relative to /root/ now, not `scene()` (since it's not present during integration testing)
         // If you want the old behavior, use scene().get_node() instead.
-        get_root().get_node_as(&path)
+        get_root().try_get_node_as::<Node>(&path).to_variant()
     }
 
     /// Get the current 2D camera. Panics if there is none.
