@@ -35,7 +35,7 @@ A small demo:
 
 How to add CrabbyConsole to your game:
 
-1. Download CrabbyConsole from the Releases section on GitHub.
+1. [Download CrabbyConsole from the Releases section on GitHub](https://github.com/Bauxitedev/crabbyconsole/releases) (or Asset Store, coming soon).
 1. Copy the `addons` folder from the zip file to your Godot game. 
 2. In Godot, go to your project settings and enable the `CrabbyConsole` plugin. 
 4. The console is now active. Start your game and press ~ (tilde) to open the console:

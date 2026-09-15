@@ -115,7 +115,7 @@ hide:
 
     ---
 
-    CrabbyConsole is open source (MIT/Apache2), its source code is available on GitHub.
+    CrabbyConsole is open source (MIT/Apache2), its source code is available on [GitHub](https://github.com/Bauxitedev/crabbyconsole).
 
     [:octicons-arrow-right-24: License](crabbyconsole/10_console/01_intro.md#license)
 
