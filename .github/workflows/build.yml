@@ -31,7 +31,9 @@ jobs:
       - name: Build (Linux)
         run: just build-release
 
+      # important: run this in the `rust` folder, otherwise it doesn't pick up the rust-toolchain.toml file
       - name: Add Windows (GNU) target
+        working-directory: ./rust
         run: rustup target add x86_64-pc-windows-gnu
 
       - name: Build (Windows)
