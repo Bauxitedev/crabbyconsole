@@ -4,16 +4,22 @@ set positional-arguments # IMPORTANT - otherwise $@ will not work in `test`
 default:
     just --list
 
+################################
+
 # rwdi = release with debug info
 build-rwdi:
     cd rust && cargo build --lib --profile release-with-debug 
 
 # call this in your CI
-build-release:
-    cd rust && cargo build --lib --profile release 
+build-release *args:
+    cd rust && cargo build --lib --profile release "$@" 
+
+################################
 
 watch-rwdi:
     cd rust && bacon --job build -- --lib --profile release-with-debug
+
+################################
 
 # this runs both unit tests and integration tests.
 # it calls `build-rwdi` first, to ensure CrabConsoleTestRunner is up to date
@@ -40,11 +46,13 @@ test-rwdi *args: build-rwdi
 # runs the test in release mode - calls this in your CI
 test-release *args: build-release
     # TODO maybe depend on `link-so-release` here?
-    cd rust && cargo nextest run --no-fail-fast  "$@" 
+    cd rust && cargo nextest run --no-fail-fast "$@" 
 
 # run only unit tests (skips integration tests, so does not require godot to be installed)
 test-unit-rwdi:
     just test-rwdi -E 'not binary(godot_test_harness)'        
+
+################################
 
 # Links up the .so file for `release-with-debug` profile, overwriting it if it already exists.
 link-so-rwdi:
@@ -61,10 +69,19 @@ link-so-debug:
     mkdir -p "godot/addons/crabbyconsole/bin"
     ln -sf "$(realpath rust/target/debug/libcrabbyconsole.so)" "godot/addons/crabbyconsole/bin/libcrabbyconsole.so"
 
+################################
+
 # Copies the .so file for `release` profile, overwriting it if it already exists.
 copy-so-release:
     mkdir -p "godot/addons/crabbyconsole/bin"
     cp "$(realpath rust/target/release/libcrabbyconsole.so)" "godot/addons/crabbyconsole/bin/libcrabbyconsole.so"
+
+# Copies the .dll file for `release` profile, overwriting it if it already exists.
+copy-dll-release:
+    mkdir -p "godot/addons/crabbyconsole/bin"
+    cp "$(realpath rust/target/release/crabbyconsole.dll)" "godot/addons/crabbyconsole/bin/crabbyconsole.dll"
+
+################################
 
 # Run this in your CI
 generate-cli-docs-debug:
@@ -79,6 +96,8 @@ generate-all-docs:
     # TODO make this task depend on `generate-cli-docs-debug` so that one runs first
     # --strict mode checks for any broken links in your markdown files
     uv run zensical build --strict
+
+################################
 
 # Generate dependency graph and store it in graph.png (requires https://github.com/jplatte/cargo-depgraph)
 dep-graph:

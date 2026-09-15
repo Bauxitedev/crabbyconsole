@@ -28,15 +28,21 @@ jobs:
         with:
           tool: nextest@0.9.143
 
-      - name: Build (release)
+      - name: Build (Linux)
         run: just build-release
 
-      - name: Strip to reduce size
+      - name: Build (Windows)
+        run: just build-release --target x86_64-pc-windows-gnu
+
+      - name: Strip .so to reduce size
         working-directory: ./rust/target/release
         run: strip *.so
+        # TODO strip .dll too
 
-      - name: Copy library 
-        run: just copy-so-release
+      - name: Copy libraries
+        run: |
+          just copy-so-release
+          just copy-dll-release
 
       # TODO install godot, then uncomment this
       # - name: Run tests (release)
@@ -46,9 +52,10 @@ jobs:
         # working-directory: .
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
-          name: crabbyconsole_linux
+          name: crabbyconsole
           # hack: include a dummy file to preserve `addons` folder in .zip.
           # see https://github.com/actions/upload-artifact/issues/174
+          # .gitignore does not actually end up in the zip file, it seems it gets removed automatically.
           path: |
             godot/addons
             godot/.gitignore 

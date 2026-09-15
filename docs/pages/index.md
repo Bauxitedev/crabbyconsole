@@ -20,7 +20,7 @@ hide:
 
     ---
 
-    Copy a single folder to your game and you're ready to go.
+    Copy a single folder to your game, tick a box, and you're ready to go.
 
     [:octicons-arrow-right-24: Getting started](crabbyconsole/10_console/01_intro.md)
 
