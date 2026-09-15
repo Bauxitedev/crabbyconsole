@@ -29,13 +29,15 @@ jobs:
           tool: nextest@0.9.143
 
       - name: Build (Linux)
-        timeout-minutes: 5 # prevent wasting CI time if it stalls
+        timeout-minutes: 5 # prevent wasting CI time if it stalls - typically takes 3min
         run: just build-release
 
       # important: run this in the `rust` folder, otherwise it doesn't pick up the rust-toolchain.toml file
-      - name: Add Windows (GNU) target
+      - name: Add Windows (GNU) rust target and install MinGW toolchain
         working-directory: ./rust
-        run: rustup target add x86_64-pc-windows-gnu
+        run: |
+          rustup target add x86_64-pc-windows-gnu
+          sudo apt-get update && sudo apt-get install -y mingw-w64
 
       - name: Build (Windows)
         run: just build-release --target x86_64-pc-windows-gnu
