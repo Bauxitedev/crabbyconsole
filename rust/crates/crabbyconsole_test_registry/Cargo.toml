@@ -1,0 +1,30 @@
+[package]
+name = "crabbyconsole_test_registry"
+version.workspace = true
+edition = "2024"
+license.workspace = true
+
+[features]
+default = []
+tracy = [
+    "dep:tracing-tracy",
+    "crabbyconsole_core/tracy", # will enable the `tracy` feature on `crabbyconsole_core` only if it's enabled on `crabbyconsole_test_registry`
+]
+
+[dependencies]
+crabbyconsole_core = { path = "../crabbyconsole_core" }
+crabbyconsole_misc = { path = "../crabbyconsole_misc" }
+crabbyconsole_macros = { path = "../crabbyconsole_macros" }                                 # `crabbyconsole_macros` does not use tracy, so no need to propagate the feature
+crabbyconsole_integration_tests_util = { path = "../crabbyconsole_integration_tests_util" } # `crabbyconsole_integration_tests_util` does not use tracy, so no need to propagate the feature
+tracing-tracy = { workspace = true, optional = true }                                                 
+godot = { workspace = true }
+tracing = { workspace = true }
+inventory = { workspace = true }
+rand = { workspace = true }
+
+[dev-dependencies]
+criterion = { workspace = true }
+
+[[bench]]
+name = "cc_bench"
+harness = false # disable Cargo's standard bench harness, since we use criterion instead

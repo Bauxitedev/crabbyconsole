@@ -1,0 +1,1895 @@
+[
+  {
+    "name": "sin",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "angle_rad",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the sine of angle [param angle_rad] in radians.\n[codeblock]\nsin(0.523599)       # Returns 0.5\nsin(deg_to_rad(90)) # Returns 1.0\n[/codeblock]"
+  },
+  {
+    "name": "cos",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "angle_rad",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the cosine of angle [param angle_rad] in radians.\n[codeblock]\ncos(PI * 2)         # Returns 1.0\ncos(PI)             # Returns -1.0\ncos(deg_to_rad(90)) # Returns 0.0\n[/codeblock]"
+  },
+  {
+    "name": "tan",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "angle_rad",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the tangent of angle [param angle_rad] in radians.\n[codeblock]\ntan(deg_to_rad(45)) # Returns 1\n[/codeblock]"
+  },
+  {
+    "name": "sinh",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the hyperbolic sine of [param x].\n[codeblock]\nvar a = log(2.0) # Returns 0.693147\nsinh(a) # Returns 0.75\n[/codeblock]"
+  },
+  {
+    "name": "cosh",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the hyperbolic cosine of [param x] in radians.\n[codeblock]\nprint(cosh(1)) # Prints 1.543081\n[/codeblock]"
+  },
+  {
+    "name": "tanh",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the hyperbolic tangent of [param x].\n[codeblock]\nvar a = log(2.0) # Returns 0.693147\ntanh(a)          # Returns 0.6\n[/codeblock]"
+  },
+  {
+    "name": "asin",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the arc sine of [param x] in radians. Use to get the angle of sine [param x]. [param x] will be clamped between [code]-1.0[/code] and [code]1.0[/code] (inclusive), in order to prevent [method asin] from returning [constant @GDScript.NAN].\n[codeblock]\n# s is 0.523599 or 30 degrees if converted with rad_to_deg(s)\nvar s = asin(0.5)\n[/codeblock]"
+  },
+  {
+    "name": "acos",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the arc cosine of [param x] in radians. Use to get the angle of cosine [param x]. [param x] will be clamped between [code]-1.0[/code] and [code]1.0[/code] (inclusive), in order to prevent [method acos] from returning [constant @GDScript.NAN].\n[codeblock]\n# c is 0.523599 or 30 degrees if converted with rad_to_deg(c)\nvar c = acos(0.866025)\n[/codeblock]"
+  },
+  {
+    "name": "atan",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the arc tangent of [param x] in radians. Use it to get the angle from an angle's tangent in trigonometry.\nThe method cannot know in which quadrant the angle should fall. See [method atan2] if you have both [code]y[/code] and [code skip-lint]x[/code].\n[codeblock]\nvar a = atan(0.5) # a is 0.463648\n[/codeblock]\nIf [param x] is between [code]-PI / 2[/code] and [code]PI / 2[/code] (inclusive), [code]atan(tan(x))[/code] is equal to [param x]."
+  },
+  {
+    "name": "atan2",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 92296394,
+    "arguments": [
+      {
+        "name": "y",
+        "type": "float"
+      },
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the arc tangent of [code]y/x[/code] in radians. Use to get the angle of tangent [code]y/x[/code]. To compute the value, the method takes into account the sign of both arguments in order to determine the quadrant.\nImportant note: The Y coordinate comes first, by convention.\n[codeblock]\nvar a = atan2(0, -1) # a is 3.141593\n[/codeblock]"
+  },
+  {
+    "name": "asinh",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the hyperbolic arc (also called inverse) sine of [param x], returning a value in radians. Use it to get the angle from an angle's sine in hyperbolic space.\n[codeblock]\nvar a = asinh(0.9) # Returns 0.8088669356527824\nsinh(a) # Returns 0.9\n[/codeblock]"
+  },
+  {
+    "name": "acosh",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the hyperbolic arc (also called inverse) cosine of [param x], returning a value in radians. Use it to get the angle from an angle's cosine in hyperbolic space if [param x] is larger or equal to 1. For values of [param x] lower than 1, it will return 0, in order to prevent [method acosh] from returning [constant @GDScript.NAN].\n[codeblock]\nvar a = acosh(2) # Returns 1.31695789692482\ncosh(a) # Returns 2\n\nvar b = acosh(-1) # Returns 0\n[/codeblock]"
+  },
+  {
+    "name": "atanh",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the hyperbolic arc (also called inverse) tangent of [param x], returning a value in radians. Use it to get the angle from an angle's tangent in hyperbolic space if [param x] is between -1 and 1 (non-inclusive).\nIn mathematics, the inverse hyperbolic tangent is only defined for -1 < [param x] < 1 in the real set, so values equal or lower to -1 for [param x] return negative [constant @GDScript.INF] and values equal or higher than 1 return positive [constant @GDScript.INF] in order to prevent [method atanh] from returning [constant @GDScript.NAN].\n[codeblock]\nvar a = atanh(0.9) # Returns 1.47221948958322\ntanh(a) # Returns 0.9\n\nvar b = atanh(-2) # Returns -inf\ntanh(b) # Returns -1\n[/codeblock]"
+  },
+  {
+    "name": "sqrt",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the square root of [param x], where [param x] is a non-negative number.\n[codeblock]\nsqrt(9)     # Returns 3\nsqrt(10.24) # Returns 3.2\nsqrt(-1)    # Returns NaN\n[/codeblock]\n[b]Note:[/b] Negative values of [param x] return NaN (\"Not a Number\"). In C#, if you need negative inputs, use [code]System.Numerics.Complex[/code]."
+  },
+  {
+    "name": "fmod",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 92296394,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      },
+      {
+        "name": "y",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the floating-point remainder of [param x] divided by [param y], keeping the sign of [param x].\n[codeblock]\nvar remainder = fmod(7, 5.5) # remainder is 1.5\n[/codeblock]\nFor the integer remainder operation, use the [code]%[/code] operator."
+  },
+  {
+    "name": "fposmod",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 92296394,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      },
+      {
+        "name": "y",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the floating-point modulus of [param x] divided by [param y], wrapping equally in positive and negative.\n[codeblock]\nprint(\" (x)  (fmod(x, 1.5))   (fposmod(x, 1.5))\")\nfor i in 7:\n\tvar x = i * 0.5 - 1.5\n\tprint(\"%4.1f           %4.1f  | %4.1f\" % [x, fmod(x, 1.5), fposmod(x, 1.5)])\n[/codeblock]\nPrints:\n[codeblock lang=text]\n (x)  (fmod(x, 1.5))   (fposmod(x, 1.5))\n-1.5           -0.0  |  0.0\n-1.0           -1.0  |  0.5\n-0.5           -0.5  |  1.0\n 0.0            0.0  |  0.0\n 0.5            0.5  |  0.5\n 1.0            1.0  |  1.0\n 1.5            0.0  |  0.0\n[/codeblock]"
+  },
+  {
+    "name": "posmod",
+    "return_type": "int",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 3133453818,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "int"
+      },
+      {
+        "name": "y",
+        "type": "int"
+      }
+    ],
+    "description": "Returns the integer modulus of [param x] divided by [param y] that wraps equally in positive and negative.\n[codeblock]\nprint(\"#(i)  (i % 3)   (posmod(i, 3))\")\nfor i in range(-3, 4):\n\tprint(\"%2d       %2d  | %2d\" % [i, i % 3, posmod(i, 3)])\n[/codeblock]\nPrints:\n[codeblock lang=text]\n(i)  (i % 3)   (posmod(i, 3))\n-3        0  |  0\n-2       -2  |  1\n-1       -1  |  2\n 0        0  |  0\n 1        1  |  1\n 2        2  |  2\n 3        0  |  0\n[/codeblock]"
+  },
+  {
+    "name": "floor",
+    "return_type": "Variant",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 4776452,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "Variant"
+      }
+    ],
+    "description": "Rounds [param x] downward (towards negative infinity), returning the largest whole number that is not more than [param x]. Supported types: [int], [float], [Vector2], [Vector2i], [Vector3], [Vector3i], [Vector4], [Vector4i].\n[codeblock]\nvar a = floor(2.99) # a is 2.0\na = floor(-2.99)    # a is -3.0\n[/codeblock]\nSee also [method ceil], [method round], and [method snapped].\n[b]Note:[/b] For better type safety, use [method floorf], [method floori], [method Vector2.floor], [method Vector3.floor], or [method Vector4.floor]."
+  },
+  {
+    "name": "floorf",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Rounds [param x] downward (towards negative infinity), returning the largest whole number that is not more than [param x].\nA type-safe version of [method floor], returning a [float]."
+  },
+  {
+    "name": "floori",
+    "return_type": "int",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2780425386,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Rounds [param x] downward (towards negative infinity), returning the largest whole number that is not more than [param x].\nA type-safe version of [method floor], returning an [int].\n[b]Note:[/b] This function is [i]not[/i] the same as [code]int(x)[/code], which rounds towards 0."
+  },
+  {
+    "name": "ceil",
+    "return_type": "Variant",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 4776452,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "Variant"
+      }
+    ],
+    "description": "Rounds [param x] upward (towards positive infinity), returning the smallest whole number that is not less than [param x]. Supported types: [int], [float], [Vector2], [Vector2i], [Vector3], [Vector3i], [Vector4], [Vector4i].\n[codeblock]\nvar i = ceil(1.45) # i is 2.0\ni = ceil(1.001)    # i is 2.0\n[/codeblock]\nSee also [method floor], [method round], and [method snapped].\n[b]Note:[/b] For better type safety, use [method ceilf], [method ceili], [method Vector2.ceil], [method Vector3.ceil], or [method Vector4.ceil]."
+  },
+  {
+    "name": "ceilf",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Rounds [param x] upward (towards positive infinity), returning the smallest whole number that is not less than [param x].\nA type-safe version of [method ceil], returning a [float]."
+  },
+  {
+    "name": "ceili",
+    "return_type": "int",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2780425386,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Rounds [param x] upward (towards positive infinity), returning the smallest whole number that is not less than [param x].\nA type-safe version of [method ceil], returning an [int]."
+  },
+  {
+    "name": "round",
+    "return_type": "Variant",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 4776452,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "Variant"
+      }
+    ],
+    "description": "Rounds [param x] to the nearest whole number, with halfway cases rounded away from 0. Supported types: [int], [float], [Vector2], [Vector2i], [Vector3], [Vector3i], [Vector4], [Vector4i].\n[codeblock]\nround(2.4) # Returns 2\nround(2.5) # Returns 3\nround(2.6) # Returns 3\n[/codeblock]\nSee also [method floor], [method ceil], and [method snapped].\n[b]Note:[/b] For better type safety, use [method roundf], [method roundi], [method Vector2.round], [method Vector3.round], or [method Vector4.round]."
+  },
+  {
+    "name": "roundf",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Rounds [param x] to the nearest whole number, with halfway cases rounded away from 0.\nA type-safe version of [method round], returning a [float]."
+  },
+  {
+    "name": "roundi",
+    "return_type": "int",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2780425386,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Rounds [param x] to the nearest whole number, with halfway cases rounded away from 0.\nA type-safe version of [method round], returning an [int]."
+  },
+  {
+    "name": "abs",
+    "return_type": "Variant",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 4776452,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "Variant"
+      }
+    ],
+    "description": "Returns the absolute value of a [Variant] parameter [param x] (i.e. non-negative value). Supported types: [int], [float], [Vector2], [Vector2i], [Vector3], [Vector3i], [Vector4], [Vector4i].\n[codeblock]\nvar a = abs(-1)\n# a is 1\n\nvar b = abs(-1.2)\n# b is 1.2\n\nvar c = abs(Vector2(-3.5, -4))\n# c is (3.5, 4)\n\nvar d = abs(Vector2i(-5, -6))\n# d is (5, 6)\n\nvar e = abs(Vector3(-7, 8.5, -3.8))\n# e is (7, 8.5, 3.8)\n\nvar f = abs(Vector3i(-7, -8, -9))\n# f is (7, 8, 9)\n[/codeblock]\n[b]Note:[/b] For better type safety, use [method absf], [method absi], [method Vector2.abs], [method Vector2i.abs], [method Vector3.abs], [method Vector3i.abs], [method Vector4.abs], or [method Vector4i.abs]."
+  },
+  {
+    "name": "absf",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the absolute value of float parameter [param x] (i.e. positive value).\n[codeblock]\n# a is 1.2\nvar a = absf(-1.2)\n[/codeblock]"
+  },
+  {
+    "name": "absi",
+    "return_type": "int",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2157319888,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "int"
+      }
+    ],
+    "description": "Returns the absolute value of int parameter [param x] (i.e. positive value).\n[codeblock]\n# a is 1\nvar a = absi(-1)\n[/codeblock]"
+  },
+  {
+    "name": "sign",
+    "return_type": "Variant",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 4776452,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "Variant"
+      }
+    ],
+    "description": "Returns the same type of [Variant] as [param x], with [code]-1[/code] for negative values, [code]1[/code] for positive values, and [code]0[/code] for zeros. For [code]nan[/code] values it returns 0.\nSupported types: [int], [float], [Vector2], [Vector2i], [Vector3], [Vector3i], [Vector4], [Vector4i].\n[codeblock]\nsign(-6.0) # Returns -1\nsign(0.0)  # Returns 0\nsign(6.0)  # Returns 1\nsign(NAN)  # Returns 0\n\nsign(Vector3(-6.0, 0.0, 6.0)) # Returns (-1, 0, 1)\n[/codeblock]\n[b]Note:[/b] For better type safety, use [method signf], [method signi], [method Vector2.sign], [method Vector2i.sign], [method Vector3.sign], [method Vector3i.sign], [method Vector4.sign], or [method Vector4i.sign]."
+  },
+  {
+    "name": "signf",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns [code]-1.0[/code] if [param x] is negative, [code]1.0[/code] if [param x] is positive, and [code]0.0[/code] if [param x] is zero. For [code]nan[/code] values of [param x] it returns 0.0.\n[codeblock]\nsignf(-6.5) # Returns -1.0\nsignf(0.0)  # Returns 0.0\nsignf(6.5)  # Returns 1.0\nsignf(NAN)  # Returns 0.0\n[/codeblock]"
+  },
+  {
+    "name": "signi",
+    "return_type": "int",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2157319888,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "int"
+      }
+    ],
+    "description": "Returns [code]-1[/code] if [param x] is negative, [code]1[/code] if [param x] is positive, and [code]0[/code] if [param x] is zero.\n[codeblock]\nsigni(-6) # Returns -1\nsigni(0)  # Returns 0\nsigni(6)  # Returns 1\n[/codeblock]"
+  },
+  {
+    "name": "snapped",
+    "return_type": "Variant",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 459914704,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "Variant"
+      },
+      {
+        "name": "step",
+        "type": "Variant"
+      }
+    ],
+    "description": "Returns the multiple of [param step] that is the closest to [param x]. This can also be used to round a floating-point number to an arbitrary number of decimals.\nThe returned value is the same type of [Variant] as [param step]. Supported types: [int], [float], [Vector2], [Vector2i], [Vector3], [Vector3i], [Vector4], [Vector4i].\n[codeblock]\nsnapped(100, 32)  # Returns 96\nsnapped(3.14159, 0.01)  # Returns 3.14\n\nsnapped(Vector2(34, 70), Vector2(8, 8))  # Returns (32, 72)\n[/codeblock]\nSee also [method ceil], [method floor], and [method round].\n[b]Note:[/b] For better type safety, use [method snappedf], [method snappedi], [method Vector2.snapped], [method Vector2i.snapped], [method Vector3.snapped], [method Vector3i.snapped], [method Vector4.snapped], or [method Vector4i.snapped]."
+  },
+  {
+    "name": "snappedf",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 92296394,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      },
+      {
+        "name": "step",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the multiple of [param step] that is the closest to [param x]. This can also be used to round a floating-point number to an arbitrary number of decimals.\nA type-safe version of [method snapped], returning a [float].\n[codeblock]\nsnappedf(32.0, 2.5)  # Returns 32.5\nsnappedf(3.14159, 0.01)  # Returns 3.14\n[/codeblock]"
+  },
+  {
+    "name": "snappedi",
+    "return_type": "int",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 3570758393,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      },
+      {
+        "name": "step",
+        "type": "int"
+      }
+    ],
+    "description": "Returns the multiple of [param step] that is the closest to [param x].\nA type-safe version of [method snapped], returning an [int].\n[codeblock]\nsnappedi(53, 16)  # Returns 48\nsnappedi(4096, 100)  # Returns 4100\n[/codeblock]"
+  },
+  {
+    "name": "pow",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 92296394,
+    "arguments": [
+      {
+        "name": "base",
+        "type": "float"
+      },
+      {
+        "name": "exp",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the result of [param base] raised to the power of [param exp].\nIn GDScript, this is the equivalent of the [code]**[/code] operator.\n[codeblock]\npow(2, 5)   # Returns 32.0\npow(4, 1.5) # Returns 8.0\n[/codeblock]"
+  },
+  {
+    "name": "log",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the [url=https://en.wikipedia.org/wiki/Natural_logarithm]natural logarithm[/url] of [param x] (base [url=https://en.wikipedia.org/wiki/E_(mathematical_constant)][i]e[/i][/url], with [i]e[/i] being approximately 2.71828). This is the amount of time needed to reach a certain level of continuous growth.\n[b]Note:[/b] This is not the same as the \"log\" function on most calculators, which uses a base 10 logarithm. To use base 10 logarithm, use [code]log(x) / log(10)[/code].\n[codeblock]\nlog(10) # Returns 2.302585\n[/codeblock]\n[b]Note:[/b] The logarithm of [code]0[/code] returns [code]-inf[/code], while negative values return [code]-nan[/code]."
+  },
+  {
+    "name": "exp",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "The natural exponential function. It raises the mathematical constant [i]e[/i] to the power of [param x] and returns it.\n[i]e[/i] has an approximate value of 2.71828, and can be obtained with [code]exp(1)[/code].\nFor exponents to other bases use the method [method pow].\n[codeblock]\nvar a = exp(2) # Approximately 7.39\n[/codeblock]"
+  },
+  {
+    "name": "is_nan",
+    "return_type": "bool",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 3569215213,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns [code]true[/code] if [param x] is a NaN (\"Not a Number\" or invalid) value. This method is needed as [constant @GDScript.NAN] is not equal to itself, which means [code]x == NAN[/code] can't be used to check whether a value is a NaN."
+  },
+  {
+    "name": "is_inf",
+    "return_type": "bool",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 3569215213,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns [code]true[/code] if [param x] is either positive infinity or negative infinity. See also [method is_finite] and [method is_nan]."
+  },
+  {
+    "name": "is_equal_approx",
+    "return_type": "bool",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 1400789633,
+    "arguments": [
+      {
+        "name": "a",
+        "type": "float"
+      },
+      {
+        "name": "b",
+        "type": "float"
+      }
+    ],
+    "description": "Returns [code]true[/code] if [param a] and [param b] are approximately equal to each other.\nHere, \"approximately equal\" means that [param a] and [param b] are within a small internal epsilon of each other, which scales with the magnitude of the numbers.\nInfinity values of the same sign are considered equal."
+  },
+  {
+    "name": "is_zero_approx",
+    "return_type": "bool",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 3569215213,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns [code]true[/code] if [param x] is zero or almost zero. The comparison is done using a tolerance calculation with a small internal epsilon.\nThis function is faster than using [method is_equal_approx] with one value as zero."
+  },
+  {
+    "name": "is_finite",
+    "return_type": "bool",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 3569215213,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns whether [param x] is a finite value, i.e. it is not [constant @GDScript.NAN], positive infinity, or negative infinity. See also [method is_inf] and [method is_nan]."
+  },
+  {
+    "name": "ease",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 92296394,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      },
+      {
+        "name": "curve",
+        "type": "float"
+      }
+    ],
+    "description": "Returns an \"eased\" value of [param x] based on an easing function defined with [param curve]. This easing function is based on an exponent. The [param curve] can be any floating-point number, with specific values leading to the following behaviors:\n[codeblock lang=text]\n- Lower than -1.0 (exclusive): Ease in-out\n- -1.0: Linear\n- Between -1.0 and 0.0 (exclusive): Ease out-in\n- 0.0: Constant\n- Between 0.0 to 1.0 (exclusive): Ease out\n- 1.0: Linear\n- Greater than 1.0 (exclusive): Ease in\n[/codeblock]\n[url=https://raw.githubusercontent.com/godotengine/godot-docs/master/img/ease_cheatsheet.png]ease() curve values cheatsheet[/url]\nSee also [method smoothstep]. If you need to perform more advanced transitions, use [method Tween.interpolate_value]."
+  },
+  {
+    "name": "step_decimals",
+    "return_type": "int",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2780425386,
+    "arguments": [
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the position of the first non-zero digit, after the decimal point. Note that the maximum return value is 10, which is a design decision in the implementation.\n[codeblock]\nvar n = step_decimals(5)       # n is 0\nn = step_decimals(1.0005)      # n is 4\nn = step_decimals(0.000000005) # n is 9\n[/codeblock]"
+  },
+  {
+    "name": "lerp",
+    "return_type": "Variant",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 3389874542,
+    "arguments": [
+      {
+        "name": "from",
+        "type": "Variant"
+      },
+      {
+        "name": "to",
+        "type": "Variant"
+      },
+      {
+        "name": "weight",
+        "type": "Variant"
+      }
+    ],
+    "description": "Linearly interpolates between two values by the factor defined in [param weight]. To perform interpolation, [param weight] should be between [code]0.0[/code] and [code]1.0[/code] (inclusive). However, values outside this range are allowed and can be used to perform [i]extrapolation[/i]. If this is not desired, use [method clampf] to limit [param weight].\nBoth [param from] and [param to] must be the same type. Supported types: [int], [float], [Vector2], [Vector3], [Vector4], [Color], [Quaternion], [Basis], [Transform2D], [Transform3D].\n[codeblock]\nlerp(0, 4, 0.75) # Returns 3.0\n[/codeblock]\nSee also [method inverse_lerp] which performs the reverse of this operation. To perform eased interpolation with [method lerp], combine it with [method ease] or [method smoothstep]. See also [method remap] to map a continuous series of values to another.\n[b]Note:[/b] For better type safety, use [method lerpf], [method Vector2.lerp], [method Vector3.lerp], [method Vector4.lerp], [method Color.lerp], [method Quaternion.slerp], [method Basis.slerp], [method Transform2D.interpolate_with], or [method Transform3D.interpolate_with]."
+  },
+  {
+    "name": "lerpf",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 998901048,
+    "arguments": [
+      {
+        "name": "from",
+        "type": "float"
+      },
+      {
+        "name": "to",
+        "type": "float"
+      },
+      {
+        "name": "weight",
+        "type": "float"
+      }
+    ],
+    "description": "Linearly interpolates between two values by the factor defined in [param weight]. To perform interpolation, [param weight] should be between [code]0.0[/code] and [code]1.0[/code] (inclusive). However, values outside this range are allowed and can be used to perform [i]extrapolation[/i]. If this is not desired, use [method clampf] on the result of this function.\n[codeblock]\nlerpf(0, 4, 0.75) # Returns 3.0\n[/codeblock]\nSee also [method inverse_lerp] which performs the reverse of this operation. To perform eased interpolation with [method lerp], combine it with [method ease] or [method smoothstep]."
+  },
+  {
+    "name": "cubic_interpolate",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 1090965791,
+    "arguments": [
+      {
+        "name": "from",
+        "type": "float"
+      },
+      {
+        "name": "to",
+        "type": "float"
+      },
+      {
+        "name": "pre",
+        "type": "float"
+      },
+      {
+        "name": "post",
+        "type": "float"
+      },
+      {
+        "name": "weight",
+        "type": "float"
+      }
+    ],
+    "description": "Cubic interpolates between two values by the factor defined in [param weight] with [param pre] and [param post] values."
+  },
+  {
+    "name": "cubic_interpolate_angle",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 1090965791,
+    "arguments": [
+      {
+        "name": "from",
+        "type": "float"
+      },
+      {
+        "name": "to",
+        "type": "float"
+      },
+      {
+        "name": "pre",
+        "type": "float"
+      },
+      {
+        "name": "post",
+        "type": "float"
+      },
+      {
+        "name": "weight",
+        "type": "float"
+      }
+    ],
+    "description": "Cubic interpolates between two rotation values with shortest path by the factor defined in [param weight] with [param pre] and [param post] values. See also [method lerp_angle]."
+  },
+  {
+    "name": "cubic_interpolate_in_time",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 388121036,
+    "arguments": [
+      {
+        "name": "from",
+        "type": "float"
+      },
+      {
+        "name": "to",
+        "type": "float"
+      },
+      {
+        "name": "pre",
+        "type": "float"
+      },
+      {
+        "name": "post",
+        "type": "float"
+      },
+      {
+        "name": "weight",
+        "type": "float"
+      },
+      {
+        "name": "to_t",
+        "type": "float"
+      },
+      {
+        "name": "pre_t",
+        "type": "float"
+      },
+      {
+        "name": "post_t",
+        "type": "float"
+      }
+    ],
+    "description": "Cubic interpolates between two values by the factor defined in [param weight] with [param pre] and [param post] values.\nIt can perform smoother interpolation than [method cubic_interpolate] by the time values."
+  },
+  {
+    "name": "cubic_interpolate_angle_in_time",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 388121036,
+    "arguments": [
+      {
+        "name": "from",
+        "type": "float"
+      },
+      {
+        "name": "to",
+        "type": "float"
+      },
+      {
+        "name": "pre",
+        "type": "float"
+      },
+      {
+        "name": "post",
+        "type": "float"
+      },
+      {
+        "name": "weight",
+        "type": "float"
+      },
+      {
+        "name": "to_t",
+        "type": "float"
+      },
+      {
+        "name": "pre_t",
+        "type": "float"
+      },
+      {
+        "name": "post_t",
+        "type": "float"
+      }
+    ],
+    "description": "Cubic interpolates between two rotation values with shortest path by the factor defined in [param weight] with [param pre] and [param post] values. See also [method lerp_angle].\nIt can perform smoother interpolation than [method cubic_interpolate] by the time values."
+  },
+  {
+    "name": "bezier_interpolate",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 1090965791,
+    "arguments": [
+      {
+        "name": "start",
+        "type": "float"
+      },
+      {
+        "name": "control_1",
+        "type": "float"
+      },
+      {
+        "name": "control_2",
+        "type": "float"
+      },
+      {
+        "name": "end",
+        "type": "float"
+      },
+      {
+        "name": "t",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the point at the given [param t] on a one-dimensional [url=https://en.wikipedia.org/wiki/B%C3%A9zier_curve]Bézier curve[/url] defined by the given [param control_1], [param control_2], and [param end] points."
+  },
+  {
+    "name": "bezier_derivative",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 1090965791,
+    "arguments": [
+      {
+        "name": "start",
+        "type": "float"
+      },
+      {
+        "name": "control_1",
+        "type": "float"
+      },
+      {
+        "name": "control_2",
+        "type": "float"
+      },
+      {
+        "name": "end",
+        "type": "float"
+      },
+      {
+        "name": "t",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the derivative at the given [param t] on a one-dimensional [url=https://en.wikipedia.org/wiki/B%C3%A9zier_curve]Bézier curve[/url] defined by the given [param control_1], [param control_2], and [param end] points."
+  },
+  {
+    "name": "angle_difference",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 92296394,
+    "arguments": [
+      {
+        "name": "from",
+        "type": "float"
+      },
+      {
+        "name": "to",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the difference between the two angles (in radians), in the range of [code][-PI, +PI][/code]. When [param from] and [param to] are opposite, returns [code]-PI[/code] if [param from] is smaller than [param to], or [code]PI[/code] otherwise."
+  },
+  {
+    "name": "lerp_angle",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 998901048,
+    "arguments": [
+      {
+        "name": "from",
+        "type": "float"
+      },
+      {
+        "name": "to",
+        "type": "float"
+      },
+      {
+        "name": "weight",
+        "type": "float"
+      }
+    ],
+    "description": "Linearly interpolates between two angles (in radians) by a [param weight] value between 0.0 and 1.0.\nSimilar to [method lerp], but interpolates correctly when the angles wrap around [constant @GDScript.TAU]. To perform eased interpolation with [method lerp_angle], combine it with [method ease] or [method smoothstep].\n[codeblock]\nextends Sprite\nvar elapsed = 0.0\nfunc _process(delta):\n\tvar min_angle = deg_to_rad(0.0)\n\tvar max_angle = deg_to_rad(90.0)\n\trotation = lerp_angle(min_angle, max_angle, elapsed)\n\telapsed += delta\n[/codeblock]\n[b]Note:[/b] This function lerps through the shortest path between [param from] and [param to]. However, when these two angles are approximately [code]PI + k * TAU[/code] apart for any integer [code]k[/code], it's not obvious which way they lerp due to floating-point precision errors. For example, [code]lerp_angle(0, PI, weight)[/code] lerps counter-clockwise, while [code]lerp_angle(0, PI + 5 * TAU, weight)[/code] lerps clockwise."
+  },
+  {
+    "name": "inverse_lerp",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 998901048,
+    "arguments": [
+      {
+        "name": "from",
+        "type": "float"
+      },
+      {
+        "name": "to",
+        "type": "float"
+      },
+      {
+        "name": "weight",
+        "type": "float"
+      }
+    ],
+    "description": "Returns an interpolation or extrapolation factor considering the range specified in [param from] and [param to], and the interpolated value specified in [param weight]. The returned value will be between [code]0.0[/code] and [code]1.0[/code] if [param weight] is between [param from] and [param to] (inclusive). If [param weight] is located outside this range, then an extrapolation factor will be returned (return value lower than [code]0.0[/code] or greater than [code]1.0[/code]). Use [method clamp] on the result of [method inverse_lerp] if this is not desired.\n[codeblock]\n# The interpolation ratio in the `lerp()` call below is 0.75.\nvar middle = lerp(20, 30, 0.75)\n# middle is now 27.5.\n\n# Now, we pretend to have forgotten the original ratio and want to get it back.\nvar ratio = inverse_lerp(20, 30, 27.5)\n# ratio is now 0.75.\n[/codeblock]\nSee also [method lerp], which performs the reverse of this operation, and [method remap] to map a continuous series of values to another."
+  },
+  {
+    "name": "remap",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 1090965791,
+    "arguments": [
+      {
+        "name": "value",
+        "type": "float"
+      },
+      {
+        "name": "istart",
+        "type": "float"
+      },
+      {
+        "name": "istop",
+        "type": "float"
+      },
+      {
+        "name": "ostart",
+        "type": "float"
+      },
+      {
+        "name": "ostop",
+        "type": "float"
+      }
+    ],
+    "description": "Maps a [param value] from range [code][istart, istop][/code] to [code][ostart, ostop][/code]. See also [method lerp] and [method inverse_lerp]. If [param value] is outside [code][istart, istop][/code], then the resulting value will also be outside [code][ostart, ostop][/code]. If this is not desired, use [method clamp] on the result of this function.\n[codeblock]\nremap(75, 0, 100, -1, 1) # Returns 0.5\n[/codeblock]\nFor complex use cases where multiple ranges are needed, consider using [Curve] or [Gradient] instead.\n[b]Note:[/b] If [code]istart == istop[/code], the return value is undefined (most likely NaN, INF, or -INF)."
+  },
+  {
+    "name": "smoothstep",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 998901048,
+    "arguments": [
+      {
+        "name": "from",
+        "type": "float"
+      },
+      {
+        "name": "to",
+        "type": "float"
+      },
+      {
+        "name": "x",
+        "type": "float"
+      }
+    ],
+    "description": "Returns a smooth cubic Hermite interpolation between [code]0[/code] and [code]1[/code].\nFor positive ranges (when [code]from <= to[/code]) the return value is [code]0[/code] when [code]x <= from[/code], and [code]1[/code] when [code]x >= to[/code]. If [param x] lies between [param from] and [param to], the return value follows an S-shaped curve that smoothly transitions from [code]0[/code] to [code]1[/code].\nFor negative ranges (when [code]from > to[/code]) the function is mirrored and returns [code]1[/code] when [code]x <= to[/code] and [code]0[/code] when [code]x >= from[/code].\nThis S-shaped curve is the cubic Hermite interpolator, given by [code]f(y) = 3*y^2 - 2*y^3[/code] where [code]y = (x-from) / (to-from)[/code].\n[codeblock]\nsmoothstep(0, 2, -5.0) # Returns 0.0\nsmoothstep(0, 2, 0.5) # Returns 0.15625\nsmoothstep(0, 2, 1.0) # Returns 0.5\nsmoothstep(0, 2, 2.0) # Returns 1.0\n[/codeblock]\nCompared to [method ease] with a curve value of [code]-1.6521[/code], [method smoothstep] returns the smoothest possible curve with no sudden changes in the derivative. If you need to perform more advanced transitions, use [Tween] or [AnimationPlayer].\n[url=https://raw.githubusercontent.com/godotengine/godot-docs/master/img/smoothstep_ease_comparison.png]Comparison between smoothstep() and ease(x, -1.6521) return values[/url]\n[url=https://raw.githubusercontent.com/godotengine/godot-docs/master/img/smoothstep_range.webp]Smoothstep() return values with positive, zero, and negative ranges[/url]"
+  },
+  {
+    "name": "move_toward",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 998901048,
+    "arguments": [
+      {
+        "name": "from",
+        "type": "float"
+      },
+      {
+        "name": "to",
+        "type": "float"
+      },
+      {
+        "name": "delta",
+        "type": "float"
+      }
+    ],
+    "description": "Moves [param from] toward [param to] by the [param delta] amount. Will not go past [param to].\nUse a negative [param delta] value to move away.\n[codeblock]\nmove_toward(5, 10, 4)    # Returns 9\nmove_toward(10, 5, 4)    # Returns 6\nmove_toward(5, 10, 9)    # Returns 10\nmove_toward(10, 5, -1.5) # Returns 11.5\n[/codeblock]"
+  },
+  {
+    "name": "rotate_toward",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 998901048,
+    "arguments": [
+      {
+        "name": "from",
+        "type": "float"
+      },
+      {
+        "name": "to",
+        "type": "float"
+      },
+      {
+        "name": "delta",
+        "type": "float"
+      }
+    ],
+    "description": "Rotates [param from] toward [param to] by the [param delta] amount. Will not go past [param to].\nSimilar to [method move_toward], but interpolates correctly when the angles wrap around [constant @GDScript.TAU].\nIf [param delta] is negative, this function will rotate away from [param to], toward the opposite angle, and will not go past the opposite angle."
+  },
+  {
+    "name": "deg_to_rad",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "deg",
+        "type": "float"
+      }
+    ],
+    "description": "Converts an angle expressed in degrees to radians.\n[codeblock]\nvar r = deg_to_rad(180) # r is 3.141593\n[/codeblock]"
+  },
+  {
+    "name": "rad_to_deg",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "rad",
+        "type": "float"
+      }
+    ],
+    "description": "Converts an angle expressed in radians to degrees.\n[codeblock]\nrad_to_deg(0.523599) # Returns 30\nrad_to_deg(PI)       # Returns 180\nrad_to_deg(PI * 2)   # Returns 360\n[/codeblock]"
+  },
+  {
+    "name": "linear_to_db",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "lin",
+        "type": "float"
+      }
+    ],
+    "description": "Converts from linear energy to decibels (audio). Since volume is not normally linear, this can be used to implement volume sliders that behave as expected.\n[b]Example:[/b] Change the Master bus's volume through a [Slider] node, which ranges from [code]0.0[/code] to [code]1.0[/code]:\n[codeblock]\nAudioServer.set_bus_volume_db(AudioServer.get_bus_index(\"Master\"), linear_to_db($Slider.value))\n[/codeblock]"
+  },
+  {
+    "name": "db_to_linear",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2140049587,
+    "arguments": [
+      {
+        "name": "db",
+        "type": "float"
+      }
+    ],
+    "description": "Converts from decibels to linear energy (audio)."
+  },
+  {
+    "name": "wrap",
+    "return_type": "Variant",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 3389874542,
+    "arguments": [
+      {
+        "name": "value",
+        "type": "Variant"
+      },
+      {
+        "name": "min",
+        "type": "Variant"
+      },
+      {
+        "name": "max",
+        "type": "Variant"
+      }
+    ],
+    "description": "Wraps the [Variant] [param value] between [param min] and [param max]. [param min] is [i]inclusive[/i] while [param max] is [i]exclusive[/i]. This can be used for creating loop-like behavior or infinite surfaces.\nVariant types [int] and [float] are supported. If any of the arguments is [float], this function returns a [float], otherwise it returns an [int].\n[codeblock]\nvar a = wrap(4, 5, 10)\n# a is 9 (int)\n\nvar a = wrap(7, 5, 10)\n# a is 7 (int)\n\nvar a = wrap(10.5, 5, 10)\n# a is 5.5 (float)\n[/codeblock]"
+  },
+  {
+    "name": "wrapi",
+    "return_type": "int",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 650295447,
+    "arguments": [
+      {
+        "name": "value",
+        "type": "int"
+      },
+      {
+        "name": "min",
+        "type": "int"
+      },
+      {
+        "name": "max",
+        "type": "int"
+      }
+    ],
+    "description": "Wraps the integer [param value] between [param min] and [param max]. [param min] is [i]inclusive[/i] while [param max] is [i]exclusive[/i]. This can be used for creating loop-like behavior or infinite surfaces.\n[codeblock]\n# Infinite loop between 5 and 9\nframe = wrapi(frame + 1, 5, 10)\n[/codeblock]\n[codeblock]\n# result is -2\nvar result = wrapi(-6, -5, -1)\n[/codeblock]"
+  },
+  {
+    "name": "wrapf",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 998901048,
+    "arguments": [
+      {
+        "name": "value",
+        "type": "float"
+      },
+      {
+        "name": "min",
+        "type": "float"
+      },
+      {
+        "name": "max",
+        "type": "float"
+      }
+    ],
+    "description": "Wraps the float [param value] between [param min] and [param max]. [param min] is [i]inclusive[/i] while [param max] is [i]exclusive[/i]. This can be used for creating loop-like behavior or infinite surfaces.\n[codeblock]\n# Infinite loop between 5.0 and 9.9\nvalue = wrapf(value + 0.1, 5.0, 10.0)\n[/codeblock]\n[codeblock]\n# Infinite rotation (in radians)\nangle = wrapf(angle + 0.1, 0.0, TAU)\n[/codeblock]\n[codeblock]\n# Infinite rotation (in radians)\nangle = wrapf(angle + 0.1, -PI, PI)\n[/codeblock]\n[b]Note:[/b] If [param min] is [code]0[/code], this is equivalent to [method fposmod], so prefer using that instead. [method wrapf] is more flexible than using the [method fposmod] approach by giving the user control over the minimum value."
+  },
+  {
+    "name": "max",
+    "return_type": "Variant",
+    "category": "math",
+    "is_vararg": true,
+    "hash": 3896050336,
+    "arguments": [
+      {
+        "name": "arg1",
+        "type": "Variant"
+      },
+      {
+        "name": "arg2",
+        "type": "Variant"
+      }
+    ],
+    "description": "Returns the maximum of the given numeric values. This function can take any number of arguments.\n[codeblock]\nmax(1, 7, 3, -6, 5) # Returns 7\n[/codeblock]\n[b]Note:[/b] When using this on vectors it will [i]not[/i] perform component-wise maximum, and will pick the largest value when compared using [code]x < y[/code]. To perform component-wise maximum, use [method Vector2.max], [method Vector2i.max], [method Vector3.max], [method Vector3i.max], [method Vector4.max], and [method Vector4i.max]."
+  },
+  {
+    "name": "maxi",
+    "return_type": "int",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 3133453818,
+    "arguments": [
+      {
+        "name": "a",
+        "type": "int"
+      },
+      {
+        "name": "b",
+        "type": "int"
+      }
+    ],
+    "description": "Returns the maximum of two [int] values.\n[codeblock]\nmaxi(1, 2)   # Returns 2\nmaxi(-3, -4) # Returns -3\n[/codeblock]"
+  },
+  {
+    "name": "maxf",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 92296394,
+    "arguments": [
+      {
+        "name": "a",
+        "type": "float"
+      },
+      {
+        "name": "b",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the maximum of two [float] values.\n[codeblock]\nmaxf(3.6, 24)   # Returns 24.0\nmaxf(-3.99, -4) # Returns -3.99\n[/codeblock]"
+  },
+  {
+    "name": "min",
+    "return_type": "Variant",
+    "category": "math",
+    "is_vararg": true,
+    "hash": 3896050336,
+    "arguments": [
+      {
+        "name": "arg1",
+        "type": "Variant"
+      },
+      {
+        "name": "arg2",
+        "type": "Variant"
+      }
+    ],
+    "description": "Returns the minimum of the given numeric values. This function can take any number of arguments.\n[codeblock]\nmin(1, 7, 3, -6, 5) # Returns -6\n[/codeblock]\n[b]Note:[/b] When using this on vectors it will [i]not[/i] perform component-wise minimum, and will pick the smallest value when compared using [code]x < y[/code]. To perform component-wise minimum, use [method Vector2.min], [method Vector2i.min], [method Vector3.min], [method Vector3i.min], [method Vector4.min], and [method Vector4i.min]."
+  },
+  {
+    "name": "mini",
+    "return_type": "int",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 3133453818,
+    "arguments": [
+      {
+        "name": "a",
+        "type": "int"
+      },
+      {
+        "name": "b",
+        "type": "int"
+      }
+    ],
+    "description": "Returns the minimum of two [int] values.\n[codeblock]\nmini(1, 2)   # Returns 1\nmini(-3, -4) # Returns -4\n[/codeblock]"
+  },
+  {
+    "name": "minf",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 92296394,
+    "arguments": [
+      {
+        "name": "a",
+        "type": "float"
+      },
+      {
+        "name": "b",
+        "type": "float"
+      }
+    ],
+    "description": "Returns the minimum of two [float] values.\n[codeblock]\nminf(3.6, 24)   # Returns 3.6\nminf(-3.99, -4) # Returns -4.0\n[/codeblock]"
+  },
+  {
+    "name": "clamp",
+    "return_type": "Variant",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 3389874542,
+    "arguments": [
+      {
+        "name": "value",
+        "type": "Variant"
+      },
+      {
+        "name": "min",
+        "type": "Variant"
+      },
+      {
+        "name": "max",
+        "type": "Variant"
+      }
+    ],
+    "description": "Clamps the [param value], returning a [Variant] not less than [param min] and not more than [param max]. Any values that can be compared with the less than and greater than operators will work.\n[codeblock]\nvar a = clamp(-10, -1, 5)\n# a is -1\n\nvar b = clamp(8.1, 0.9, 5.5)\n# b is 5.5\n[/codeblock]\n[b]Note:[/b] For better type safety, use [method clampf], [method clampi], [method Vector2.clamp], [method Vector2i.clamp], [method Vector3.clamp], [method Vector3i.clamp], [method Vector4.clamp], [method Vector4i.clamp], or [method Color.clamp] (not currently supported by this method).\n[b]Note:[/b] When using this on vectors it will [i]not[/i] perform component-wise clamping, and will pick [param min] if [code]value < min[/code] or [param max] if [code]value > max[/code]. To perform component-wise clamping use the methods listed above."
+  },
+  {
+    "name": "clampi",
+    "return_type": "int",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 650295447,
+    "arguments": [
+      {
+        "name": "value",
+        "type": "int"
+      },
+      {
+        "name": "min",
+        "type": "int"
+      },
+      {
+        "name": "max",
+        "type": "int"
+      }
+    ],
+    "description": "Clamps the [param value], returning an [int] not less than [param min] and not more than [param max].\n[codeblock]\nvar speed = 42\nvar a = clampi(speed, 1, 20) # a is 20\n\nspeed = -10\nvar b = clampi(speed, -1, 1) # b is -1\n[/codeblock]"
+  },
+  {
+    "name": "clampf",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 998901048,
+    "arguments": [
+      {
+        "name": "value",
+        "type": "float"
+      },
+      {
+        "name": "min",
+        "type": "float"
+      },
+      {
+        "name": "max",
+        "type": "float"
+      }
+    ],
+    "description": "Clamps the [param value], returning a [float] not less than [param min] and not more than [param max].\n[codeblock]\nvar speed = 42.1\nvar a = clampf(speed, 1.0, 20.5) # a is 20.5\n\nspeed = -10.0\nvar b = clampf(speed, -1.0, 1.0) # b is -1.0\n[/codeblock]"
+  },
+  {
+    "name": "nearest_po2",
+    "return_type": "int",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 2157319888,
+    "arguments": [
+      {
+        "name": "value",
+        "type": "int"
+      }
+    ],
+    "description": "Returns the smallest integer power of 2 that is greater than or equal to [param value].\n[codeblock]\nnearest_po2(3) # Returns 4\nnearest_po2(4) # Returns 4\nnearest_po2(5) # Returns 8\n\nnearest_po2(0)  # Returns 0 (this may not be expected)\nnearest_po2(-1) # Returns 0 (this may not be expected)\n[/codeblock]\n[b]Warning:[/b] Due to its implementation, this method returns [code]0[/code] rather than [code]1[/code] for values less than or equal to [code]0[/code], with an exception for [param value] being the smallest negative 64-bit integer ([code]-9223372036854775808[/code]) in which case the [param value] is returned unchanged."
+  },
+  {
+    "name": "pingpong",
+    "return_type": "float",
+    "category": "math",
+    "is_vararg": false,
+    "hash": 92296394,
+    "arguments": [
+      {
+        "name": "value",
+        "type": "float"
+      },
+      {
+        "name": "length",
+        "type": "float"
+      }
+    ],
+    "description": "Wraps [param value] between [code]0[/code] and the [param length]. If the limit is reached, the next value the function returns is decreased to the [code]0[/code] side or increased to the [param length] side (like a triangle wave). If [param length] is less than zero, it becomes positive.\n[codeblock]\npingpong(-3.0, 3.0) # Returns 3.0\npingpong(-2.0, 3.0) # Returns 2.0\npingpong(-1.0, 3.0) # Returns 1.0\npingpong(0.0, 3.0)  # Returns 0.0\npingpong(1.0, 3.0)  # Returns 1.0\npingpong(2.0, 3.0)  # Returns 2.0\npingpong(3.0, 3.0)  # Returns 3.0\npingpong(4.0, 3.0)  # Returns 2.0\npingpong(5.0, 3.0)  # Returns 1.0\npingpong(6.0, 3.0)  # Returns 0.0\n[/codeblock]"
+  },
+  {
+    "name": "randomize",
+    "category": "random",
+    "is_vararg": false,
+    "hash": 1691721052,
+    "description": "Randomizes the seed (or the internal state) of the random number generator. The current implementation uses a number based on the device's time.\n[b]Note:[/b] This function is called automatically when the project is run. If you need to fix the seed to have consistent, reproducible results, use [method seed] to initialize the random number generator."
+  },
+  {
+    "name": "randi",
+    "return_type": "int",
+    "category": "random",
+    "is_vararg": false,
+    "hash": 701202648,
+    "description": "Returns a random unsigned 32-bit integer. Use remainder to obtain a random value in the interval [code][0, N - 1][/code] (where N is smaller than 2^32).\n[codeblocks]\n[gdscript]\nrandi()           # Returns random integer between 0 and 2^32 - 1\nrandi() % 20      # Returns random integer between 0 and 19\nrandi() % 100     # Returns random integer between 0 and 99\nrandi() % 100 + 1 # Returns random integer between 1 and 100\n[/gdscript]\n[csharp]\nGD.Randi();           // Returns random integer between 0 and 2^32 - 1\nGD.Randi() % 20;      // Returns random integer between 0 and 19\nGD.Randi() % 100;     // Returns random integer between 0 and 99\nGD.Randi() % 100 + 1; // Returns random integer between 1 and 100\n[/csharp]\n[/codeblocks]"
+  },
+  {
+    "name": "randf",
+    "return_type": "float",
+    "category": "random",
+    "is_vararg": false,
+    "hash": 2086227845,
+    "description": "Returns a random floating-point value between [code]0.0[/code] and [code]1.0[/code] (inclusive).\n[codeblocks]\n[gdscript]\nrandf() # Returns e.g. 0.375671\n[/gdscript]\n[csharp]\nGD.Randf(); // Returns e.g. 0.375671\n[/csharp]\n[/codeblocks]"
+  },
+  {
+    "name": "randi_range",
+    "return_type": "int",
+    "category": "random",
+    "is_vararg": false,
+    "hash": 3133453818,
+    "arguments": [
+      {
+        "name": "from",
+        "type": "int"
+      },
+      {
+        "name": "to",
+        "type": "int"
+      }
+    ],
+    "description": "Returns a random signed 32-bit integer between [param from] and [param to] (inclusive). If [param to] is lesser than [param from], they are swapped.\n[codeblocks]\n[gdscript]\nrandi_range(0, 1)      # Returns either 0 or 1\nrandi_range(-10, 1000) # Returns random integer between -10 and 1000\n[/gdscript]\n[csharp]\nGD.RandRange(0, 1);      // Returns either 0 or 1\nGD.RandRange(-10, 1000); // Returns random integer between -10 and 1000\n[/csharp]\n[/codeblocks]"
+  },
+  {
+    "name": "randf_range",
+    "return_type": "float",
+    "category": "random",
+    "is_vararg": false,
+    "hash": 92296394,
+    "arguments": [
+      {
+        "name": "from",
+        "type": "float"
+      },
+      {
+        "name": "to",
+        "type": "float"
+      }
+    ],
+    "description": "Returns a random floating-point value between [param from] and [param to] (inclusive).\n[codeblocks]\n[gdscript]\nrandf_range(0, 20.5) # Returns e.g. 7.45315\nrandf_range(-10, 10) # Returns e.g. -3.844535\n[/gdscript]\n[csharp]\nGD.RandRange(0.0, 20.5);   // Returns e.g. 7.45315\nGD.RandRange(-10.0, 10.0); // Returns e.g. -3.844535\n[/csharp]\n[/codeblocks]"
+  },
+  {
+    "name": "randfn",
+    "return_type": "float",
+    "category": "random",
+    "is_vararg": false,
+    "hash": 92296394,
+    "arguments": [
+      {
+        "name": "mean",
+        "type": "float"
+      },
+      {
+        "name": "deviation",
+        "type": "float"
+      }
+    ],
+    "description": "Returns a [url=https://en.wikipedia.org/wiki/Normal_distribution]normally-distributed[/url], pseudo-random floating-point value from the specified [param mean] and a standard [param deviation]. This is also known as a Gaussian distribution.\n[b]Note:[/b] This method uses the [url=https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform]Box-Muller transform[/url] algorithm."
+  },
+  {
+    "name": "seed",
+    "category": "random",
+    "is_vararg": false,
+    "hash": 382931173,
+    "arguments": [
+      {
+        "name": "base",
+        "type": "int"
+      }
+    ],
+    "description": "Sets the seed for the random number generator to [param base]. Setting the seed manually can ensure consistent, repeatable results for most random functions.\n[codeblocks]\n[gdscript]\nvar my_seed = \"Godot Rocks\".hash()\nseed(my_seed)\nvar a = randf() + randi()\nseed(my_seed)\nvar b = randf() + randi()\n# a and b are now identical\n[/gdscript]\n[csharp]\nulong mySeed = (ulong)GD.Hash(\"Godot Rocks\");\nGD.Seed(mySeed);\nvar a = GD.Randf() + GD.Randi();\nGD.Seed(mySeed);\nvar b = GD.Randf() + GD.Randi();\n// a and b are now identical\n[/csharp]\n[/codeblocks]"
+  },
+  {
+    "name": "rand_from_seed",
+    "return_type": "PackedInt64Array",
+    "category": "random",
+    "is_vararg": false,
+    "hash": 1391063685,
+    "arguments": [
+      {
+        "name": "seed",
+        "type": "int"
+      }
+    ],
+    "description": "Given a [param seed], returns a [PackedInt64Array] of size [code]2[/code], where its first element is the randomized [int] value, and the second element is the same as [param seed]. Passing the same [param seed] consistently returns the same array.\n[b]Note:[/b] \"Seed\" here refers to the internal state of the pseudo random number generator, currently implemented as a 64 bit integer.\n[codeblock]\nvar a = rand_from_seed(4)\n\nprint(a[0]) # Prints 2879024997\nprint(a[1]) # Prints 4\n[/codeblock]"
+  },
+  {
+    "name": "weakref",
+    "return_type": "Variant",
+    "category": "general",
+    "is_vararg": false,
+    "hash": 4776452,
+    "arguments": [
+      {
+        "name": "obj",
+        "type": "Variant"
+      }
+    ],
+    "description": "Returns a [WeakRef] instance holding a weak reference to [param obj]. Returns an empty [WeakRef] instance if [param obj] is [code]null[/code]. Prints an error and returns [code]null[/code] if [param obj] is neither [Object]-derived nor [code]null[/code].\nA weak reference to an object is not enough to keep the object alive: when the only remaining references to a referent are weak references, garbage collection is free to destroy the referent and reuse its memory for something else. However, until the object is actually destroyed the weak reference may return the object even if there are no strong references to it."
+  },
+  {
+    "name": "typeof",
+    "return_type": "int",
+    "category": "general",
+    "is_vararg": false,
+    "hash": 326422594,
+    "arguments": [
+      {
+        "name": "variable",
+        "type": "Variant"
+      }
+    ],
+    "description": "Returns the internal type of the given [param variable], using the [enum Variant.Type] values.\n[codeblock]\nvar json = JSON.new()\njson.parse('[\"a\", \"b\", \"c\"]')\nvar result = json.get_data()\nif typeof(result) == TYPE_ARRAY:\n\tprint(result[0]) # Prints \"a\"\nelse:\n\tprint(\"Unexpected result!\")\n[/codeblock]\nSee also [method type_string]."
+  },
+  {
+    "name": "type_convert",
+    "return_type": "Variant",
+    "category": "general",
+    "is_vararg": false,
+    "hash": 2453062746,
+    "arguments": [
+      {
+        "name": "variant",
+        "type": "Variant"
+      },
+      {
+        "name": "type",
+        "type": "int"
+      }
+    ],
+    "description": "Converts the given [param variant] to the given [param type], using the [enum Variant.Type] values. This method is generous with how it handles types, it can automatically convert between array types, convert numeric [String]s to [int], and converting most things to [String].\nIf the type conversion cannot be done, this method will return the default value for that type, for example converting [Rect2] to [Vector2] will always return [constant Vector2.ZERO]. This method will never show error messages as long as [param type] is a valid Variant type.\nThe returned value is a [Variant], but the data inside and its type will be the same as the requested type.\n[codeblock]\ntype_convert(\"Hi!\", TYPE_INT) # Returns 0\ntype_convert(\"123\", TYPE_INT) # Returns 123\ntype_convert(123.4, TYPE_INT) # Returns 123\ntype_convert(5, TYPE_VECTOR2) # Returns (0, 0)\ntype_convert(\"Hi!\", TYPE_NIL) # Returns null\n[/codeblock]"
+  },
+  {
+    "name": "str",
+    "return_type": "String",
+    "category": "general",
+    "is_vararg": true,
+    "hash": 32569176,
+    "arguments": [
+      {
+        "name": "arg1",
+        "type": "Variant"
+      }
+    ],
+    "description": "Converts one or more arguments of any [Variant] type to a [String] in the best way possible.\n[codeblock]\nvar a = [10, 20, 30]\nvar b = str(a)\nprint(len(a)) # Prints 3 (the number of elements in the array).\nprint(len(b)) # Prints 12 (the length of the string \"[10, 20, 30]\").\n[/codeblock]"
+  },
+  {
+    "name": "error_string",
+    "return_type": "String",
+    "category": "general",
+    "is_vararg": false,
+    "hash": 942708242,
+    "arguments": [
+      {
+        "name": "error",
+        "type": "int"
+      }
+    ],
+    "description": "Returns a human-readable name for the given [enum Error] code.\n[codeblock]\nprint(OK)                              # Prints 0\nprint(error_string(OK))                # Prints \"OK\"\nprint(error_string(ERR_BUSY))          # Prints \"Busy\"\nprint(error_string(ERR_OUT_OF_MEMORY)) # Prints \"Out of memory\"\n[/codeblock]"
+  },
+  {
+    "name": "type_string",
+    "return_type": "String",
+    "category": "general",
+    "is_vararg": false,
+    "hash": 942708242,
+    "arguments": [
+      {
+        "name": "type",
+        "type": "int"
+      }
+    ],
+    "description": "Returns a human-readable name of the given [param type], using the [enum Variant.Type] values.\n[codeblock]\nprint(TYPE_INT) # Prints 2\nprint(type_string(TYPE_INT)) # Prints \"int\"\nprint(type_string(TYPE_STRING)) # Prints \"String\"\n[/codeblock]\nSee also [method typeof]."
+  },
+  {
+    "name": "print",
+    "category": "general",
+    "is_vararg": true,
+    "hash": 2648703342,
+    "arguments": [
+      {
+        "name": "arg1",
+        "type": "Variant"
+      }
+    ],
+    "description": "Converts one or more arguments of any type to string in the best way possible and prints them to the console.\n[codeblocks]\n[gdscript]\nvar a = [1, 2, 3]\nprint(\"a\", \"b\", a) # Prints \"ab[1, 2, 3]\"\n[/gdscript]\n[csharp]\nGodot.Collections.Array a = [1, 2, 3];\nGD.Print(\"a\", \"b\", a); // Prints \"ab[1, 2, 3]\"\n[/csharp]\n[/codeblocks]\n[b]Note:[/b] Consider using [method push_error] and [method push_warning] to print error and warning messages instead of [method print] or [method print_rich]. This distinguishes them from print messages used for debugging purposes, while also displaying a stack trace when an error or warning is printed. See also [member Engine.print_to_stdout] and [member ProjectSettings.application/run/disable_stdout]."
+  },
+  {
+    "name": "print_rich",
+    "category": "general",
+    "is_vararg": true,
+    "hash": 2648703342,
+    "arguments": [
+      {
+        "name": "arg1",
+        "type": "Variant"
+      }
+    ],
+    "description": "Converts one or more arguments of any type to string in the best way possible and prints them to the console.\nThe following BBCode tags are supported: [code]b[/code], [code]i[/code], [code]u[/code], [code]s[/code], [code]indent[/code], [code]code[/code], [code]url[/code], [code]center[/code], [code]right[/code], [code]color[/code], [code]bgcolor[/code], [code]fgcolor[/code].\nURL tags only support URLs wrapped by a URL tag, not URLs with a different title.\nWhen printing to standard output, the supported subset of BBCode is converted to ANSI escape codes for the terminal emulator to display. Support for ANSI escape codes varies across terminal emulators, especially for italic and strikethrough. In standard output, [code]code[/code] is represented with faint text but without any font change. Unsupported tags are left as-is in standard output.\n[codeblocks]\n[gdscript skip-lint]\nprint_rich(\"[color=green][b]Hello world![/b][/color]\") # Prints \"Hello world!\", in green with a bold font.\n[/gdscript]\n[csharp skip-lint]\nGD.PrintRich(\"[color=green][b]Hello world![/b][/color]\"); // Prints \"Hello world!\", in green with a bold font.\n[/csharp]\n[/codeblocks]\n[b]Note:[/b] Consider using [method push_error] and [method push_warning] to print error and warning messages instead of [method print] or [method print_rich]. This distinguishes them from print messages used for debugging purposes, while also displaying a stack trace when an error or warning is printed.\n[b]Note:[/b] Output displayed in the editor supports clickable [code skip-lint][url=address]text[/url][/code] tags. The [code skip-lint][url][/code] tag's [code]address[/code] value is handled by [method OS.shell_open] when clicked."
+  },
+  {
+    "name": "printerr",
+    "category": "general",
+    "is_vararg": true,
+    "hash": 2648703342,
+    "arguments": [
+      {
+        "name": "arg1",
+        "type": "Variant"
+      }
+    ],
+    "description": "Prints one or more arguments to strings in the best way possible to standard error line.\n[codeblocks]\n[gdscript]\nprinterr(\"prints to stderr\")\n[/gdscript]\n[csharp]\nGD.PrintErr(\"prints to stderr\");\n[/csharp]\n[/codeblocks]"
+  },
+  {
+    "name": "printt",
+    "category": "general",
+    "is_vararg": true,
+    "hash": 2648703342,
+    "arguments": [
+      {
+        "name": "arg1",
+        "type": "Variant"
+      }
+    ],
+    "description": "Prints one or more arguments to the console with a tab between each argument.\n[codeblocks]\n[gdscript]\nprintt(\"A\", \"B\", \"C\") # Prints \"A       B       C\"\n[/gdscript]\n[csharp]\nGD.PrintT(\"A\", \"B\", \"C\"); // Prints \"A       B       C\"\n[/csharp]\n[/codeblocks]"
+  },
+  {
+    "name": "prints",
+    "category": "general",
+    "is_vararg": true,
+    "hash": 2648703342,
+    "arguments": [
+      {
+        "name": "arg1",
+        "type": "Variant"
+      }
+    ],
+    "description": "Prints one or more arguments to the console with a space between each argument.\n[codeblocks]\n[gdscript]\nprints(\"A\", \"B\", \"C\") # Prints \"A B C\"\n[/gdscript]\n[csharp]\nGD.PrintS(\"A\", \"B\", \"C\"); // Prints \"A B C\"\n[/csharp]\n[/codeblocks]"
+  },
+  {
+    "name": "printraw",
+    "category": "general",
+    "is_vararg": true,
+    "hash": 2648703342,
+    "arguments": [
+      {
+        "name": "arg1",
+        "type": "Variant"
+      }
+    ],
+    "description": "Prints one or more arguments to strings in the best way possible to the OS terminal. Unlike [method print], no newline is automatically added at the end.\n[b]Note:[/b] The OS terminal is [i]not[/i] the same as the editor's Output dock. The output sent to the OS terminal can be seen when running Godot from a terminal. On Windows, this requires using the [code]console.exe[/code] executable.\n[codeblocks]\n[gdscript]\n# Prints \"ABC\" to terminal.\nprintraw(\"A\")\nprintraw(\"B\")\nprintraw(\"C\")\n[/gdscript]\n[csharp]\n// Prints \"ABC\" to terminal.\nGD.PrintRaw(\"A\");\nGD.PrintRaw(\"B\");\nGD.PrintRaw(\"C\");\n[/csharp]\n[/codeblocks]"
+  },
+  {
+    "name": "print_verbose",
+    "category": "general",
+    "is_vararg": true,
+    "hash": 2648703342,
+    "arguments": [
+      {
+        "name": "arg1",
+        "type": "Variant"
+      }
+    ],
+    "description": "If verbose mode is enabled ([method OS.is_stdout_verbose] returning [code]true[/code]), converts one or more arguments of any type to string in the best way possible and prints them to the console."
+  },
+  {
+    "name": "push_error",
+    "category": "general",
+    "is_vararg": true,
+    "hash": 2648703342,
+    "arguments": [
+      {
+        "name": "arg1",
+        "type": "Variant"
+      }
+    ],
+    "description": "Pushes an error message to Godot's built-in debugger and to the OS terminal.\n[codeblocks]\n[gdscript]\npush_error(\"test error\") # Prints \"test error\" to debugger and terminal as an error.\n[/gdscript]\n[csharp]\nGD.PushError(\"test error\"); // Prints \"test error\" to debugger and terminal as an error.\n[/csharp]\n[/codeblocks]\n[b]Note:[/b] This function does not pause project execution. To print an error message and pause project execution in debug builds, use [code]assert(false, \"test error\")[/code] instead."
+  },
+  {
+    "name": "push_warning",
+    "category": "general",
+    "is_vararg": true,
+    "hash": 2648703342,
+    "arguments": [
+      {
+        "name": "arg1",
+        "type": "Variant"
+      }
+    ],
+    "description": "Pushes a warning message to Godot's built-in debugger and to the OS terminal.\n[codeblocks]\n[gdscript]\npush_warning(\"test warning\") # Prints \"test warning\" to debugger and terminal as a warning.\n[/gdscript]\n[csharp]\nGD.PushWarning(\"test warning\"); // Prints \"test warning\" to debugger and terminal as a warning.\n[/csharp]\n[/codeblocks]"
+  },
+  {
+    "name": "var_to_str",
+    "return_type": "String",
+    "category": "general",
+    "is_vararg": false,
+    "hash": 866625479,
+    "arguments": [
+      {
+        "name": "variable",
+        "type": "Variant"
+      }
+    ],
+    "description": "Converts a [Variant] [param variable] to a formatted [String] that can then be parsed using [method str_to_var].\n[codeblocks]\n[gdscript]\nvar a = { \"a\": 1, \"b\": 2 }\nprint(var_to_str(a))\n[/gdscript]\n[csharp]\nvar a = new Godot.Collections.Dictionary { [\"a\"] = 1, [\"b\"] = 2 };\nGD.Print(GD.VarToStr(a));\n[/csharp]\n[/codeblocks]\nPrints:\n[codeblock lang=text]\n{\n\t\"a\": 1,\n\t\"b\": 2\n}\n[/codeblock]\n[b]Note:[/b] Converting [Signal] or [Callable] is not supported and will result in an empty value for these types, regardless of their data."
+  },
+  {
+    "name": "str_to_var",
+    "return_type": "Variant",
+    "category": "general",
+    "is_vararg": false,
+    "hash": 1891498491,
+    "arguments": [
+      {
+        "name": "string",
+        "type": "String"
+      }
+    ],
+    "description": "Converts a formatted [param string] that was returned by [method var_to_str] to the original [Variant].\n[codeblocks]\n[gdscript]\nvar data = '{ \"a\": 1, \"b\": 2 }' # data is a String\nvar dict = str_to_var(data)     # dict is a Dictionary\nprint(dict[\"a\"])                # Prints 1\n[/gdscript]\n[csharp]\nstring data = \"{ \\\"a\\\": 1, \\\"b\\\": 2 }\";           // data is a string\nvar dict = GD.StrToVar(data).AsGodotDictionary(); // dict is a Dictionary\nGD.Print(dict[\"a\"]);                              // Prints 1\n[/csharp]\n[/codeblocks]"
+  },
+  {
+    "name": "var_to_bytes",
+    "return_type": "PackedByteArray",
+    "category": "general",
+    "is_vararg": false,
+    "hash": 2947269930,
+    "arguments": [
+      {
+        "name": "variable",
+        "type": "Variant"
+      }
+    ],
+    "description": "Encodes a [Variant] value to a byte array, without encoding objects. Deserialization can be done with [method bytes_to_var].\n[b]Note:[/b] If you need object serialization, see [method var_to_bytes_with_objects].\n[b]Note:[/b] Encoding [Callable] is not supported and will result in an empty value, regardless of the data."
+  },
+  {
+    "name": "bytes_to_var",
+    "return_type": "Variant",
+    "category": "general",
+    "is_vararg": false,
+    "hash": 4249819452,
+    "arguments": [
+      {
+        "name": "bytes",
+        "type": "PackedByteArray"
+      }
+    ],
+    "description": "Decodes a byte array back to a [Variant] value, without decoding objects.\n[b]Note:[/b] If you need object deserialization, see [method bytes_to_var_with_objects]."
+  },
+  {
+    "name": "var_to_bytes_with_objects",
+    "return_type": "PackedByteArray",
+    "category": "general",
+    "is_vararg": false,
+    "hash": 2947269930,
+    "arguments": [
+      {
+        "name": "variable",
+        "type": "Variant"
+      }
+    ],
+    "description": "Encodes a [Variant] value to a byte array. Encoding objects is allowed (and can potentially include executable code). Deserialization can be done with [method bytes_to_var_with_objects].\n[b]Note:[/b] Encoding [Callable] is not supported and will result in an empty value, regardless of the data."
+  },
+  {
+    "name": "bytes_to_var_with_objects",
+    "return_type": "Variant",
+    "category": "general",
+    "is_vararg": false,
+    "hash": 4249819452,
+    "arguments": [
+      {
+        "name": "bytes",
+        "type": "PackedByteArray"
+      }
+    ],
+    "description": "Decodes a byte array back to a [Variant] value. Decoding objects is allowed.\n[b]Warning:[/b] Deserialized object can contain code which gets executed. Do not use this option if the serialized object comes from untrusted sources to avoid potential security threats (remote code execution)."
+  },
+  {
+    "name": "hash",
+    "return_type": "int",
+    "category": "general",
+    "is_vararg": false,
+    "hash": 326422594,
+    "arguments": [
+      {
+        "name": "variable",
+        "type": "Variant"
+      }
+    ],
+    "description": "Returns the integer hash of the passed [param variable].\n[codeblocks]\n[gdscript]\nprint(hash(\"a\")) # Prints 177670\n[/gdscript]\n[csharp]\nGD.Print(GD.Hash(\"a\")); // Prints 177670\n[/csharp]\n[/codeblocks]"
+  },
+  {
+    "name": "instance_from_id",
+    "return_type": "Object",
+    "category": "general",
+    "is_vararg": false,
+    "hash": 1156694636,
+    "arguments": [
+      {
+        "name": "instance_id",
+        "type": "int"
+      }
+    ],
+    "description": "Returns the [Object] that corresponds to [param instance_id]. All Objects have a unique instance ID. See also [method Object.get_instance_id].\n[codeblocks]\n[gdscript]\nvar drink = \"water\"\n\nfunc _ready():\n\tvar id = get_instance_id()\n\tvar instance = instance_from_id(id)\n\tprint(instance.drink) # Prints \"water\"\n[/gdscript]\n[csharp]\npublic partial class MyNode : Node\n{\n\tpublic string Drink { get; set; } = \"water\";\n\n\tpublic override void _Ready()\n\t{\n\t\tulong id = GetInstanceId();\n\t\tvar instance = (MyNode)InstanceFromId(Id);\n\t\tGD.Print(instance.Drink); // Prints \"water\"\n\t}\n}\n[/csharp]\n[/codeblocks]"
+  },
+  {
+    "name": "is_instance_id_valid",
+    "return_type": "bool",
+    "category": "general",
+    "is_vararg": false,
+    "hash": 2232439758,
+    "arguments": [
+      {
+        "name": "id",
+        "type": "int"
+      }
+    ],
+    "description": "Returns [code]true[/code] if the Object that corresponds to [param id] is a valid object (e.g. has not been deleted from memory). All Objects have a unique instance ID."
+  },
+  {
+    "name": "is_instance_valid",
+    "return_type": "bool",
+    "category": "general",
+    "is_vararg": false,
+    "hash": 996128841,
+    "arguments": [
+      {
+        "name": "instance",
+        "type": "Variant"
+      }
+    ],
+    "description": "Returns [code]true[/code] if [param instance] is a valid Object (e.g. has not been deleted from memory)."
+  },
+  {
+    "name": "rid_allocate_id",
+    "return_type": "int",
+    "category": "general",
+    "is_vararg": false,
+    "hash": 701202648,
+    "description": "Allocates a unique ID which can be used by the implementation to construct an RID. This is used mainly from native extensions to implement servers."
+  },
+  {
+    "name": "rid_from_int64",
+    "return_type": "RID",
+    "category": "general",
+    "is_vararg": false,
+    "hash": 3426892196,
+    "arguments": [
+      {
+        "name": "base",
+        "type": "int"
+      }
+    ],
+    "description": "Creates an RID from a [param base]. This is used mainly from native extensions to build servers."
+  },
+  {
+    "name": "is_same",
+    "return_type": "bool",
+    "category": "general",
+    "is_vararg": false,
+    "hash": 1409423524,
+    "arguments": [
+      {
+        "name": "a",
+        "type": "Variant"
+      },
+      {
+        "name": "b",
+        "type": "Variant"
+      }
+    ],
+    "description": "Returns [code]true[/code], for value types, if [param a] and [param b] share the same value. Returns [code]true[/code], for reference types, if the references of [param a] and [param b] are the same.\n[codeblock]\n# Vector2 is a value type\nvar vec2_a = Vector2(0, 0)\nvar vec2_b = Vector2(0, 0)\nvar vec2_c = Vector2(1, 1)\nis_same(vec2_a, vec2_a)  # true\nis_same(vec2_a, vec2_b)  # true\nis_same(vec2_a, vec2_c)  # false\n\n# Array is a reference type\nvar arr_a = []\nvar arr_b = []\nis_same(arr_a, arr_a)  # true\nis_same(arr_a, arr_b)  # false\n[/codeblock]\nThese are [Variant] value types: [code]null[/code], [bool], [int], [float], [String], [StringName], [Vector2], [Vector2i], [Vector3], [Vector3i], [Vector4], [Vector4i], [Rect2], [Rect2i], [Transform2D], [Transform3D], [Plane], [Quaternion], [AABB], [Basis], [Projection], [Color], [NodePath], [RID], [Callable] and [Signal].\nThese are [Variant] reference types: [Object], [Dictionary], [Array], [PackedByteArray], [PackedInt32Array], [PackedInt64Array], [PackedFloat32Array], [PackedFloat64Array], [PackedStringArray], [PackedVector2Array], [PackedVector3Array], [PackedVector4Array], and [PackedColorArray]."
+  }
+]

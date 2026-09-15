@@ -1,0 +1,193 @@
+[
+  {
+    "name": "Color8",
+    "return_type": "Color",
+    "is_vararg": false,
+    "arguments": [
+      {
+        "name": "r8",
+        "type": "int"
+      },
+      {
+        "name": "g8",
+        "type": "int"
+      },
+      {
+        "name": "b8",
+        "type": "int"
+      },
+      {
+        "name": "a8",
+        "type": "int",
+        "default": "255"
+      }
+    ],
+    "description": "Returns a Color constructed from red (r8), green (g8), blue (b8), and optionally alpha (a8) integer channels, each divided by 255.0 for their final value."
+  },
+  {
+    "name": "assert",
+    "is_vararg": false,
+    "arguments": [
+      {
+        "name": "condition",
+        "type": "bool"
+      },
+      {
+        "name": "message",
+        "type": "String",
+        "default": "\"\""
+      }
+    ],
+    "description": "Asserts that the condition is true."
+  },
+  {
+    "name": "char",
+    "return_type": "String",
+    "is_vararg": false,
+    "arguments": [
+      {
+        "name": "code",
+        "type": "int"
+      }
+    ],
+    "description": "Returns a single character (as a String of length 1) of the given Unicode code point code."
+  },
+  {
+    "name": "convert",
+    "return_type": "Variant",
+    "is_vararg": false,
+    "arguments": [
+      {
+        "name": "what",
+        "type": "Variant"
+      },
+      {
+        "name": "type",
+        "type": "int"
+      }
+    ],
+    "description": "Converts what to type in the best way possible."
+  },
+  {
+    "name": "dict_to_inst",
+    "return_type": "Object",
+    "is_vararg": false,
+    "arguments": [
+      {
+        "name": "dictionary",
+        "type": "Dictionary"
+      }
+    ],
+    "description": "Converts a dictionary (created with inst_to_dict()) back to an Object instance."
+  },
+  {
+    "name": "get_stack",
+    "return_type": "Array",
+    "is_vararg": false,
+    "description": "Returns an array of dictionaries representing the current call stack."
+  },
+  {
+    "name": "inst_to_dict",
+    "return_type": "Dictionary",
+    "is_vararg": false,
+    "arguments": [
+      {
+        "name": "instance",
+        "type": "Object"
+      }
+    ],
+    "description": "Returns the passed instance converted to a Dictionary."
+  },
+  {
+    "name": "is_instance_of",
+    "return_type": "bool",
+    "is_vararg": false,
+    "arguments": [
+      {
+        "name": "value",
+        "type": "Variant"
+      },
+      {
+        "name": "type",
+        "type": "Variant"
+      }
+    ],
+    "description": "Returns true if value is an instance of type."
+  },
+  {
+    "name": "len",
+    "return_type": "int",
+    "is_vararg": false,
+    "arguments": [
+      {
+        "name": "var",
+        "type": "Variant"
+      }
+    ],
+    "description": "Returns the length of the given Variant var."
+  },
+  {
+    "name": "load",
+    "return_type": "Resource",
+    "is_vararg": false,
+    "arguments": [
+      {
+        "name": "path",
+        "type": "String"
+      }
+    ],
+    "description": "Returns a Resource from the filesystem located at the absolute path."
+  },
+  {
+    "name": "ord",
+    "return_type": "int",
+    "is_vararg": false,
+    "arguments": [
+      {
+        "name": "char",
+        "type": "String"
+      }
+    ],
+    "description": "Returns an integer representing the Unicode code point of the given character char, which should be a string of length 1."
+  },
+  {
+    "name": "preload",
+    "return_type": "Resource",
+    "is_vararg": false,
+    "arguments": [
+      {
+        "name": "path",
+        "type": "String"
+      }
+    ],
+    "description": "Returns a Resource from the filesystem located at path."
+  },
+  {
+    "name": "print_debug",
+    "is_vararg": true,
+    "description": "Like print(), but includes the current stack frame when running with the debugger turned on."
+  },
+  {
+    "name": "print_stack",
+    "is_vararg": false,
+    "description": "Prints a stack trace at the current code location."
+  },
+  {
+    "name": "range",
+    "return_type": "Array",
+    "is_vararg": true,
+    "description": "Returns an array with the given range."
+  },
+  {
+    "name": "type_exists",
+    "return_type": "bool",
+    "is_vararg": false,
+    "arguments": [
+      {
+        "name": "type",
+        "type": "StringName"
+      }
+    ],
+    "description": "Returns true if the given Object-derived class exists in ClassDB."
+  }
+]

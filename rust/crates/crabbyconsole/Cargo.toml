@@ -1,0 +1,40 @@
+[package]
+name = "crabbyconsole"
+version.workspace = true
+edition = "2024"
+license.workspace = true
+
+# We want the dependency chain to go like this:
+# crabbyconsole -> crabbyconsole_core
+# crabbyconsole_core -> crabbyconsole_misc
+
+# so crabbyconsole is just a "thin shell" crate that bundles everything together as a cdylib.
+# it doesn't have a lot of code at all, just `pub use` and the "impl ExtensionLibrary"
+
+[lib]
+crate-type = [
+    "cdylib", # Compile this crate to a dynamic C library. 
+    "rlib",   # We need rlib as well, otherwise the binary can't access the library
+]
+
+[features]
+default = [] # no default features
+tracy = [
+    "dep:tracing-tracy",                 #  enables the `tracing-tracy` dep only if the `tracy` feature is enabled on `crabbyconsole`
+    "crabbyconsole_misc/tracy",          #  enables the `tracy` feature on `crabbyconsole_misc` only if it's enabled on `crabbyconsole`
+    "crabbyconsole_core/tracy",          #  enables the `tracy` feature on `crabbyconsole_core` only if it's enabled on `crabbyconsole`
+    "crabbyconsole_test_registry/tracy", #  enables the `tracy` feature on `crabbyconsole_test_registry` only if it's enabled on `crabbyconsole`
+]
+
+[dependencies]
+crabbyconsole_misc = { path = "../crabbyconsole_misc" }
+crabbyconsole_core = { path = "../crabbyconsole_core" }
+crabbyconsole_test_registry = { path = "../crabbyconsole_test_registry" }
+crabbyconsole_clap = { path = "../crabbyconsole_clap" } # no tracy feature (for now)
+
+tracing-tracy = { workspace = true, optional = true } 
+tracing = { workspace = true }
+godot = { workspace = true }
+
+[build-dependencies]
+rand = { workspace = true }

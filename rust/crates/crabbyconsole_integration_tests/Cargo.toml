@@ -1,0 +1,18 @@
+[package]
+name = "crabbyconsole_integration_tests"
+version.workspace = true
+edition = "2024"
+license.workspace = true
+
+# define a custom test with a custom test harness (main() in tests/godot_tests.rs will be called as your test harness)
+[[test]]
+name = "godot_test_harness"
+path = "tests/godot_test_harness.rs"
+harness = false                      # disable cargo's default test harness
+
+# put deps you need in tests here
+[dev-dependencies]
+libtest-mimic = { workspace = true }
+rand = { workspace = true }
+crabbyconsole_integration_tests_util = { path = "../crabbyconsole_integration_tests_util" }
+# `crabbyconsole_integration_tests_util` does not use tracy, so no need to propagate the feature

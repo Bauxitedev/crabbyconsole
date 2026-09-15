@@ -1,0 +1,189 @@
+[gd_scene format=3 uid="uid://cj3lber7iw8mv"]
+
+[ext_resource type="Texture2D" uid="uid://c7tchvii5l4je" path="res://demo/textures/uvgrid.png" id="1_exhl0"]
+[ext_resource type="Texture2D" uid="uid://bg5xecb5knq5v" path="res://demo/textures/fish_brown_outline.svg" id="1_y6t4k"]
+[ext_resource type="Texture2D" uid="uid://dvfypkruqv7ha" path="res://demo/textures/fish_green_skeleton_outline.svg" id="2_y6t4k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7yrxx"]
+radius = 50.0
+height = 300.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_quk2f"]
+bg_color = Color(0.8842749, 0.46901917, 0.2919755, 1)
+
+[node name="PickerTestScene" type="Node" unique_id=329215964]
+
+[node name="2D" type="Node2D" parent="." unique_id=1425957153]
+
+[node name="Line2D" type="Line2D" parent="2D" unique_id=1396825090]
+position = Vector2(544, 41)
+points = PackedVector2Array(0, 0, 401, 42, 418, 196, 260, 234, 250, 151, 319, 142, 324, 177, 290, 183, 287, 167)
+closed = true
+
+[node name="Polygon2D" type="Polygon2D" parent="2D" unique_id=749542223]
+polygon = PackedVector2Array(1077, 688, 1015, 511, 1142, 650, 1193, 648, 1181, 496, 1242, 502, 1220, 691)
+
+[node name="Sprite2D" type="Sprite2D" parent="2D" unique_id=774320762]
+position = Vector2(185.99998, 581.99994)
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("1_y6t4k")
+
+[node name="Sprite2D2" type="Sprite2D" parent="2D" unique_id=1417816892]
+modulate = Color(0.84875625, 0.7187869, 0.6618936, 1)
+position = Vector2(230.99998, 612)
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("1_y6t4k")
+
+[node name="Sprite2D3" type="Sprite2D" parent="2D" unique_id=54828860]
+modulate = Color(0.811355, 0.49337518, 0.85453296, 1)
+position = Vector2(275, 650)
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("1_y6t4k")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="2D" unique_id=1629589569]
+position = Vector2(545, 644)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="2D/StaticBody2D" unique_id=2030075687]
+shape = SubResource("CapsuleShape2D_7yrxx")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="2D" unique_id=742631146]
+position = Vector2(762, 678)
+rotation = 1.2430682
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="2D/StaticBody2D2" unique_id=1398176403]
+shape = SubResource("CapsuleShape2D_7yrxx")
+
+[node name="Sprite2D" type="Sprite2D" parent="2D/StaticBody2D2" unique_id=438628093]
+rotation = -1.5707964
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("2_y6t4k")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="2D" unique_id=928519787]
+position = Vector2(1172, 778)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="2D/StaticBody2D3" unique_id=152641603]
+position = Vector2(0, 61)
+polygon = PackedVector2Array(-36, 5, -31, -213, 7, -33, 211, -20)
+
+[node name="Camera2D" type="Camera2D" parent="2D" unique_id=1282592852]
+offset = Vector2(500, 500)
+zoom = Vector2(0.6, 0.6)
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Control" type="Control" parent="." unique_id=395803060]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Control" unique_id=815920555]
+layout_mode = 0
+offset_left = 345.0
+offset_top = 366.0
+offset_right = 460.0
+offset_bottom = 425.0
+text = "color
+"
+color = Color(0.87191534, 0.5449864, 0.94005346, 1)
+
+[node name="TextEdit" type="TextEdit" parent="Control" unique_id=1583169858]
+layout_mode = 0
+offset_left = 808.0
+offset_top = 507.0
+offset_right = 936.0
+offset_bottom = 579.0
+text = "edit meeeee"
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1356155832]
+layout_mode = 0
+offset_left = 949.0
+offset_top = 137.0
+offset_right = 1205.0
+offset_bottom = 393.0
+texture = ExtResource("1_exhl0")
+
+[node name="TextureRect2" type="TextureRect" parent="Control" unique_id=1704679145]
+layout_mode = 0
+offset_left = 1027.0
+offset_top = 206.0
+offset_right = 1283.0
+offset_bottom = 462.0
+texture = ExtResource("1_exhl0")
+
+[node name="TextureRect3" type="TextureRect" parent="Control" unique_id=514278403]
+layout_mode = 0
+offset_left = 882.0
+offset_top = 180.0
+offset_right = 1138.0
+offset_bottom = 436.0
+texture = ExtResource("1_exhl0")
+
+[node name="SpinBox" type="SpinBox" parent="Control" unique_id=63197973]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 392.0
+offset_right = 553.0
+offset_bottom = 475.0
+max_value = 999999.0
+value = 99999.0
+
+[node name="TabContainer" type="TabContainer" parent="Control" unique_id=807190279]
+layout_mode = 0
+offset_left = 584.0
+offset_top = 229.0
+offset_right = 905.0
+offset_bottom = 543.0
+current_tab = 0
+
+[node name="CodeEdit" type="CodeEdit" parent="Control/TabContainer" unique_id=1574466365]
+layout_mode = 2
+text = "amazing code edit"
+metadata/_tab_index = 0
+
+[node name="Button" type="Button" parent="Control/TabContainer/CodeEdit" unique_id=389014539]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 88.0
+offset_right = 213.0
+offset_bottom = 119.0
+text = "do not click me"
+
+[node name="CodeEdit2" type="CodeEdit" parent="Control/TabContainer" unique_id=1049504814]
+visible = false
+layout_mode = 2
+text = "beautiful
+"
+metadata/_tab_index = 1
+
+[node name="CodeEdit3" type="CodeEdit" parent="Control/TabContainer" unique_id=1459660185]
+visible = false
+layout_mode = 2
+text = "even more code
+"
+metadata/_tab_index = 2
+
+[node name="Panel" type="Panel" parent="Control" unique_id=1689950727]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 292.0
+offset_right = 247.0
+offset_bottom = 425.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_quk2f")
+
+[node name="Label With Space In Name" type="Label" parent="Control/Panel" unique_id=746730794]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 75.0
+offset_right = 221.0
+offset_bottom = 98.0
+text = "label with space in name"
+
+[node name="HSlider" type="HSlider" parent="Control/Panel" unique_id=1751359791]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 14.0
+offset_right = 201.0
+offset_bottom = 75.0

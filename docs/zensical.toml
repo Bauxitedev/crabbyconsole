@@ -1,0 +1,173 @@
+[project]
+site_url = "https://www.example.com/"                                 # TODO put github pages link here
+site_name = "CrabbyConsole Documentation"
+site_description = "A feature-packed dev console for your Godot game"
+# site_author = "Your name"
+docs_dir = "pages"
+
+# copyright = "Copyright &copy; 2026 Your name"
+
+# repo_url = "https://github.com/user/repo"
+# repo_name = "user/repo"
+# edit_uri = "edit/main/docs/"
+
+# UNCOMMENT THIS to have a markdown whitelist
+#nav = [{ "Get started" = "index.md" }, { "Markdown in 5min" = "markdown.md" }]
+
+# [project.nav]
+# Home = "index.md"
+# "Advanced Topics" = [{ "Setup" = "10_misc" }]
+
+extra_css = ["stylesheets/extra.css"]
+# extra_javascript = ["javascripts/extra.js"]
+
+[project.validation]
+invalid_links = true        # enabled by default methinks but adding it anyway
+invalid_link_anchors = true
+
+[project.theme]
+variant = "classic"
+# custom_dir = "overrides"
+# favicon = "images/favicon.png"
+language = "en"
+features = [
+  "announce.dismiss",
+  # "content.action.edit",
+  # "content.action.view",
+  "content.code.annotate",
+  "content.code.copy",
+  "content.code.select",
+  "content.footnote.tooltips",
+  "content.tabs.link",
+  "content.tooltips",
+  # "header.autohide",
+  # "navigation.expand",           # too tall on the command reference
+  "navigation.footer",
+  "navigation.indexes",
+  "navigation.instant",
+  "navigation.instant.prefetch",
+  # "navigation.instant.progress",
+  "navigation.path",
+  # "navigation.prune",
+  "navigation.sections",
+  "navigation.tabs",
+  "navigation.tabs.sticky",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+  # "toc.follow",
+  # "toc.integrate", # ugly
+]
+
+
+logo = "assets/logo.svg"
+
+# seems redundant with ^
+# [project.theme.icon]
+# logo = "lucide/smile"
+
+[project.theme.font]
+#text = "IBM Plex Sans Condensed" # nice
+#text = "Fira Sans" # nice
+text = "Fira Sans Condensed" # nicest
+#text = "Inter" # nice
+#code = "Ubuntu Mono" # nnice
+code = "Fira Mono"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+toggle.icon = "lucide/sun-moon"
+toggle.name = "Switch to light mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "custom"                      # <-- see stylesheets/extra.css
+accent = "orange"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "custom"                          # <-- see stylesheets/extra.css
+accent = "orange"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to system preference"
+
+# [[project.extra.social]]
+# icon = "fontawesome/brands/github"
+# link = "https://github.com/user/repo"
+# TODO put github link here
+
+# [[project.extra.social]]
+# icon = "fontawesome/brands/mastodon"
+# link = "https://fosstodon.org/@user"
+
+######################################
+
+# With these you can add icons next to the page title in the sitemap.
+# See https://zensical.org/docs/authoring/frontmatter/#page-status
+# Drawback: it seems you can only have one at a time.
+# So you can't have both Risky and Experimental... Hm...
+
+# [project.extra.status]
+# new = "Recently added"
+# risky = "Risky"
+# experimental = "Experimental"
+
+# use these in your front matter like:
+# ---
+# status: new
+# ---
+
+######################################
+
+
+[project.markdown_extensions]
+abbr = {}
+admonition = {}
+attr_list = {}
+def_list = {}
+footnotes = {}
+md_in_html = {}
+toc.permalink = true
+pymdownx.arithmatex.generic = true
+pymdownx.betterem = {}
+pymdownx.caret = {}
+pymdownx.details = {}
+pymdownx.emoji.emoji_generator = "zensical.extensions.emoji.to_svg"
+pymdownx.emoji.emoji_index = "zensical.extensions.emoji.twemoji"
+pymdownx.highlight.anchor_linenums = true
+pymdownx.highlight.line_spans = "__span"
+pymdownx.highlight.pygments_lang_class = true
+pymdownx.inlinehilite = {}
+pymdownx.keys = {}
+pymdownx.magiclink = {}
+pymdownx.mark = {}
+pymdownx.smartsymbols = {}
+#pymdownx.snippets = {}
+#pymdownx.snippets.base_path = "md" # or "includes"???
+pymdownx.superfences.custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
+pymdownx.tabbed.alternate_style = true
+pymdownx.tabbed.combine_header_slug = true
+pymdownx.tasklist.custom_checkbox = true
+pymdownx.tilde = {}
+
+# uncomment this so we can include things in other things e.g.
+# --8<-- "_CrabbyConsole/_-_Console/01_intro.md"
+# [project.markdown_extensions.pymdownx.snippets]
+# base_path = ["md"]
+
+
+############ PLUGINS ############
+# see here on how to enable them: https://zensical.org/docs/compatibility/mkdocs/plugins/#mkdocs-plugins
+
+# enable `awesome-nav` plugin
+[project.plugins.awesome-nav]
+
+# enable `minify` plugin
+[project.plugins.minify]
+minify_html = true

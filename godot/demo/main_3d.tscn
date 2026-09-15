@@ -1,0 +1,165 @@
+[gd_scene format=3 uid="uid://daqcgbukl6nmx"]
+
+[ext_resource type="Script" uid="uid://bcefbf0dmibci" path="res://demo/main_3d.gd" id="1_a37pf"]
+[ext_resource type="Texture2D" uid="uid://btpab31qeo2l4" path="res://demo/textures/background_blue.png" id="2_pie8d"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ufs37"]
+
+[sub_resource type="Sky" id="Sky_8j6p4"]
+sky_material = SubResource("ProceduralSkyMaterial_ufs37")
+
+[sub_resource type="Environment" id="Environment_ogxvw"]
+background_mode = 2
+sky = SubResource("Sky_8j6p4")
+tonemap_mode = 4
+tonemap_exposure = 1.5
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ogxvw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ufs37"]
+albedo_color = Color(0.4864496, 0.7299674, 0.84790796, 1)
+albedo_texture = ExtResource("2_pie8d")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8j6p4"]
+material = SubResource("StandardMaterial3D_ufs37")
+size = Vector2(999, 999)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_42htk"]
+friction = 0.6
+bounce = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ido0f"]
+albedo_color = Color(1, 0.3529412, 0.3137255, 1)
+albedo_texture = ExtResource("2_pie8d")
+roughness = 0.6
+uv1_scale = Vector3(4, 2, 4)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ufs37"]
+material = SubResource("StandardMaterial3D_ido0f")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8j6p4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ufs37"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogxvw"]
+albedo_color = Color(0.7690443, 0.31827146, 0.6911138, 1)
+albedo_texture = ExtResource("2_pie8d")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_rv7l3"]
+material = SubResource("StandardMaterial3D_ogxvw")
+
+[node name="PickScene" type="Node3D" unique_id=1819483470]
+script = ExtResource("1_a37pf")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2108589836]
+environment = SubResource("Environment_ogxvw")
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=535500006]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1338905557]
+shape = SubResource("WorldBoundaryShape3D_ogxvw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1254649418]
+mesh = SubResource("PlaneMesh_8j6p4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1647876055]
+transform = Transform3D(0.3144011, 0.8772762, -0.3626824, -0.27409804, 0.4496774, 0.85009456, 0.9088577, -0.16786027, 0.3818388, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=135855749]
+transform = Transform3D(1, 0, 0, 0, 0.84088796, 0.54120934, 0, -0.54120934, 0.84088796, 2.3841858e-07, 4.9925065, 6.334257)
+
+[node name="Props" type="Node3D" parent="." unique_id=388027391]
+unique_name_in_owner = true
+
+[node name="Ball" type="RigidBody3D" parent="Props" unique_id=1828809128]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12728441, 0.59526396, -0.019113421)
+physics_material_override = SubResource("PhysicsMaterial_42htk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Props/Ball" unique_id=593906525]
+mesh = SubResource("SphereMesh_ufs37")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Ball" unique_id=466719338]
+shape = SubResource("SphereShape3D_8j6p4")
+
+[node name="ContainerWalls" type="Node3D" parent="." unique_id=1354926589]
+
+[node name="ContainerWall" type="StaticBody3D" parent="ContainerWalls" unique_id=135947788]
+transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0.5, -4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ContainerWalls/ContainerWall" unique_id=2043660220]
+shape = SubResource("BoxShape3D_ufs37")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ContainerWalls/ContainerWall" unique_id=1551214539]
+mesh = SubResource("BoxMesh_rv7l3")
+
+[node name="ContainerWall2" type="StaticBody3D" parent="ContainerWalls" unique_id=31868309]
+transform = Transform3D(-3.496911e-07, 0, 0.1, 0, 1, 0, -8, 0, -4.371139e-09, -4, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ContainerWalls/ContainerWall2" unique_id=121297788]
+shape = SubResource("BoxShape3D_ufs37")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ContainerWalls/ContainerWall2" unique_id=2000586107]
+mesh = SubResource("BoxMesh_rv7l3")
+
+[node name="ContainerWall4" type="StaticBody3D" parent="ContainerWalls" unique_id=2060772274]
+transform = Transform3D(-3.496911e-07, 0, 0.1, 0, 1, 0, -8, 0, -4.371139e-09, 4, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ContainerWalls/ContainerWall4" unique_id=1218984696]
+shape = SubResource("BoxShape3D_ufs37")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ContainerWalls/ContainerWall4" unique_id=1992903223]
+mesh = SubResource("BoxMesh_rv7l3")
+
+[node name="ContainerWall3" type="StaticBody3D" parent="ContainerWalls" unique_id=1792930542]
+transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0.5, 4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ContainerWalls/ContainerWall3" unique_id=859317743]
+shape = SubResource("BoxShape3D_ufs37")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ContainerWalls/ContainerWall3" unique_id=1482222280]
+mesh = SubResource("BoxMesh_rv7l3")
+
+[node name="Control" type="Control" parent="." unique_id=310749407]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1721619098]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -47.0
+offset_right = 143.0
+grow_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1326103372]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=427796248]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Press ` to open CrabbyConsole"
+
+[node name="CommandsButton" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=187372293]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Add example graphs"
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/CommandsButton" to="." method="_on_commands_button_pressed"]

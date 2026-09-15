@@ -1,0 +1,38 @@
+[sound]
+enabled = true
+base_volume = "50%"
+
+[jobs.build]
+command = [
+    "cargo",
+    "build",
+    "--message-format",
+    "json-diagnostic-rendered-ansi",
+]
+need_stdout = true
+analyzer = "cargo_json" # needed, otherwise the order of the things will be wrong
+allow_warnings = true # needed, otherwise it plays failure sound if there's a warning
+on_success = "play-sound(name=success,volume=100)"
+on_failure = "play-sound(name=beep-beep,volume=100)"
+# background = false # doesn't work?
+
+[jobs.clippy-strict]
+command = [
+    "cargo", "clippy",
+    "--all-targets",
+    "--",
+    "-D", "clippy::pedantic",
+]
+need_stdout = true
+
+[jobs.clippy-nursery]
+command = [
+    "cargo", "clippy",
+    "--all-targets",
+    "--",
+    "-D", "clippy::nursery",
+]
+need_stdout = true
+
+[keybindings]
+ctrl-r = "toggle-raw-output" # doesn't work?

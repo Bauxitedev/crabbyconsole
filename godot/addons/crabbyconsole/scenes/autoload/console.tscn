@@ -1,0 +1,409 @@
+[gd_scene format=3 uid="uid://kn25telrxoal"]
+
+[ext_resource type="Texture2D" uid="uid://b3e7lds6t228d" path="res://addons/crabbyconsole/textures/logo.svg" id="1_0uejy"]
+[ext_resource type="FontFile" uid="uid://c3d7uv08wmh16" path="res://addons/crabbyconsole/fonts/roboto/static/RobotoMono-Regular.ttf" id="2_2rrwh"]
+[ext_resource type="Shader" uid="uid://dx86oy7jfo12" path="res://addons/crabbyconsole/shaders/ui/busy_indicator.gdshader" id="2_ywda4"]
+[ext_resource type="Script" uid="uid://c0w2ia4gw8sfg" path="res://addons/crabbyconsole/scenes/autoload/console_picker.gd" id="3_ir0fo"]
+[ext_resource type="FontFile" uid="uid://ypl0prs3qp7q" path="res://addons/crabbyconsole/fonts/roboto/static/RobotoMono-Bold.ttf" id="3_ljta5"]
+[ext_resource type="FontFile" uid="uid://dl0nx7dw5perc" path="res://addons/crabbyconsole/fonts/roboto/static/RobotoMono-BoldItalic.ttf" id="4_ocfab"]
+[ext_resource type="FontFile" uid="uid://d2itux4fkw7eu" path="res://addons/crabbyconsole/fonts/roboto/static/RobotoMono-Italic.ttf" id="5_tkxuq"]
+[ext_resource type="Script" uid="uid://bxm6mab4eyu5w" path="res://addons/crabbyconsole/scenes/autoload/console_health_checker.gd" id="8_8nurw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2xki"]
+bg_color = Color(0, 0, 0, 0.49019608)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ir0fo"]
+shader = ExtResource("2_ywda4")
+shader_parameter/enabled = true
+shader_parameter/speed = 18.470000877325
+shader_parameter/wavelength = 150.0000070775
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_3jq0c"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+color = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jq0c"]
+bg_color = Color(0, 0, 0, 0.49019608)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0.49019608)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir0fo"]
+bg_color = Color(1, 1, 1, 0)
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0uejy"]
+render_priority = 100
+transparency = 1
+blend_mode = 1
+depth_test = 1
+shading_mode = 0
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.25, 0.25, 0.25, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbulu"]
+render_priority = 100
+next_pass = SubResource("StandardMaterial3D_0uejy")
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+disable_fog = true
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_0uejy"]
+
+[node name="CrabbyConsole" type="CrabConsole" unique_id=506775514]
+logo = ExtResource("1_0uejy")
+process_mode = 3
+
+[node name="ConsoleCanvasLayer" type="CanvasLayer" parent="." unique_id=1631074746]
+unique_name_in_owner = true
+editor_description = "The layer index of this CanvasLayer must be at most 1023, otherwise it will go in front of popup menus and windows like the context menu and the selection rectangle when you select text. See documentation for CanvasLayer."
+layer = 1023
+
+[node name="ConsoleHSplit" type="HSplitContainer" parent="ConsoleCanvasLayer" unique_id=856164283]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+split_offsets = PackedInt32Array(250)
+split_offset = 250
+
+[node name="ConsoleVSplit" type="VSplitContainer" parent="ConsoleCanvasLayer/ConsoleHSplit" unique_id=439340447]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+split_offsets = PackedInt32Array(-90)
+split_offset = -90
+
+[node name="MarginContainer" type="MarginContainer" parent="ConsoleCanvasLayer/ConsoleHSplit/ConsoleVSplit" unique_id=1641666829]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ConsolePanel" type="Panel" parent="ConsoleCanvasLayer/ConsoleHSplit/ConsoleVSplit/MarginContainer" unique_id=2067006599]
+unique_name_in_owner = true
+editor_description = "TODO this should be a PanelContainer, so it auto resizes. Make sure you retain its properties like z index and the panel resource"
+z_index = 4000
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2xki")
+
+[node name="MarginContainer" type="MarginContainer" parent="ConsoleCanvasLayer/ConsoleHSplit/ConsoleVSplit/MarginContainer/ConsolePanel" unique_id=262590672]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConsoleCanvasLayer/ConsoleHSplit/ConsoleVSplit/MarginContainer/ConsolePanel/MarginContainer" unique_id=2076448398]
+layout_mode = 2
+
+[node name="ConsoleHistory" type="RichTextLabel" parent="ConsoleCanvasLayer/ConsoleHSplit/ConsoleVSplit/MarginContainer/ConsolePanel/MarginContainer/VBoxContainer" unique_id=567619455]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_2rrwh")
+theme_override_fonts/bold_font = ExtResource("3_ljta5")
+theme_override_fonts/bold_italics_font = ExtResource("4_ocfab")
+theme_override_fonts/italics_font = ExtResource("5_tkxuq")
+theme_override_fonts/mono_font = ExtResource("2_2rrwh")
+theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/bold_font_size = 14
+theme_override_font_sizes/bold_italics_font_size = 14
+theme_override_font_sizes/italics_font_size = 14
+theme_override_font_sizes/mono_font_size = 14
+bbcode_enabled = true
+text = "[b]Welcome to CrabbyConsole[/b]!
+Press [b]Up[/b] or [b]Down[/b] to scroll through history. Press [b]Tab[/b] or [b]Shift+Tab[/b] to perform autocompletion.
+Press [b]Ctrl+R[/b] to toggle search mode. Press [b]Ctrl+C[/b] to interrupt a long-running command.
+Type [b]:help[/b] to get help. Any command not starting with [b]:[/b] is interpreted as GDScript.
+Drag the slider on the bottom to resize the console.
+"
+scroll_following = true
+context_menu_enabled = true
+threaded = true
+selection_enabled = true
+
+[node name="BusyIndicator" type="HSeparator" parent="ConsoleCanvasLayer/ConsoleHSplit/ConsoleVSplit/MarginContainer/ConsolePanel/MarginContainer/VBoxContainer" unique_id=1758580021]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_ir0fo")
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxLine_3jq0c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConsoleCanvasLayer/ConsoleHSplit/ConsoleVSplit/MarginContainer/ConsolePanel/MarginContainer/VBoxContainer" unique_id=1082627385]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ConsoleLineEdit" type="LineEdit" parent="ConsoleCanvasLayer/ConsoleHSplit/ConsoleVSplit/MarginContainer/ConsolePanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1240090240]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_2rrwh")
+theme_override_font_sizes/font_size = 14
+placeholder_text = "Enter command here..."
+keep_editing_on_text_submit = true
+clear_button_enabled = true
+caret_blink = true
+
+[node name="AutocompleteLabel" type="RichTextLabel" parent="ConsoleCanvasLayer/ConsoleHSplit/ConsoleVSplit/MarginContainer/ConsolePanel/MarginContainer/VBoxContainer/HBoxContainer/ConsoleLineEdit" unique_id=560416276]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("2_2rrwh")
+theme_override_fonts/bold_font = ExtResource("3_ljta5")
+theme_override_fonts/bold_italics_font = ExtResource("4_ocfab")
+theme_override_fonts/italics_font = ExtResource("5_tkxuq")
+theme_override_fonts/mono_font = ExtResource("2_2rrwh")
+theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/bold_font_size = 14
+theme_override_font_sizes/bold_italics_font_size = 14
+theme_override_font_sizes/italics_font_size = 14
+theme_override_font_sizes/mono_font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_3jq0c")
+bbcode_enabled = true
+text = "auto1 [b]bold[/b]
+auto2
+[color=red]auto1[/color]
+auto2
+auto1
+auto2
+"
+autowrap_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="EllipsisButton" type="MenuButton" parent="ConsoleCanvasLayer/ConsoleHSplit/ConsoleVSplit/MarginContainer/ConsolePanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1937229149]
+unique_name_in_owner = true
+layout_mode = 2
+text = " ... "
+item_count = 3
+popup/item_0/text = "Pick Control..."
+popup/item_0/id = 0
+popup/item_1/text = "Pick Node2D..."
+popup/item_1/id = 1
+popup/item_2/text = "Pick Node3D..."
+popup/item_2/id = 2
+
+[node name="EmptyPanel" type="Control" parent="ConsoleCanvasLayer/ConsoleHSplit/ConsoleVSplit" unique_id=826351368 groups=["CRABBYCONSOLE_PICKER_SKIP"]]
+editor_description = "Keep this panel around, or you can't use the mouse to resize the console"
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ConsoleCanvasLayer/ConsoleHSplit" unique_id=500901026]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainerDebug" type="MarginContainer" parent="ConsoleCanvasLayer/ConsoleHSplit/ScrollContainer" unique_id=1644993077]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConsoleCanvasLayer/ConsoleHSplit/ScrollContainer/MarginContainerDebug" unique_id=1308846027]
+layout_mode = 2
+
+[node name="FoldableContainer" type="FoldableContainer" parent="ConsoleCanvasLayer/ConsoleHSplit/ScrollContainer/MarginContainerDebug/VBoxContainer" unique_id=1419727734]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2xki")
+title = "Watches"
+
+[node name="MarginContainer" type="MarginContainer" parent="ConsoleCanvasLayer/ConsoleHSplit/ScrollContainer/MarginContainerDebug/VBoxContainer/FoldableContainer" unique_id=1139065164]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="WatchLabel" type="RichTextLabel" parent="ConsoleCanvasLayer/ConsoleHSplit/ScrollContainer/MarginContainerDebug/VBoxContainer/FoldableContainer/MarginContainer" unique_id=959894990]
+unique_name_in_owner = true
+z_index = 3000
+layout_mode = 2
+size_flags_vertical = 10
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0.5171842, 0.5171846, 0.5171841, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 0
+theme_override_fonts/normal_font = ExtResource("2_2rrwh")
+theme_override_fonts/bold_font = ExtResource("3_ljta5")
+theme_override_fonts/bold_italics_font = ExtResource("4_ocfab")
+theme_override_fonts/italics_font = ExtResource("5_tkxuq")
+theme_override_fonts/mono_font = ExtResource("2_2rrwh")
+theme_override_font_sizes/normal_font_size = 13
+theme_override_font_sizes/bold_font_size = 13
+theme_override_font_sizes/bold_italics_font_size = 13
+theme_override_font_sizes/italics_font_size = 13
+theme_override_font_sizes/mono_font_size = 13
+bbcode_enabled = true
+text = "debug text here
+[color=red]debug[/color] text here"
+fit_content = true
+
+[node name="FoldableContainer2" type="FoldableContainer" parent="ConsoleCanvasLayer/ConsoleHSplit/ScrollContainer/MarginContainerDebug/VBoxContainer" unique_id=1623850359]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2xki")
+title = "Remote Console"
+
+[node name="MarginContainer" type="MarginContainer" parent="ConsoleCanvasLayer/ConsoleHSplit/ScrollContainer/MarginContainerDebug/VBoxContainer/FoldableContainer2" unique_id=1479458604]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="RemoteConsoleLabel" type="RichTextLabel" parent="ConsoleCanvasLayer/ConsoleHSplit/ScrollContainer/MarginContainerDebug/VBoxContainer/FoldableContainer2/MarginContainer" unique_id=870201690]
+unique_name_in_owner = true
+z_index = 3000
+layout_mode = 2
+size_flags_vertical = 10
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0.5171842, 0.5171846, 0.5171841, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 0
+theme_override_fonts/normal_font = ExtResource("2_2rrwh")
+theme_override_fonts/bold_font = ExtResource("3_ljta5")
+theme_override_fonts/bold_italics_font = ExtResource("4_ocfab")
+theme_override_fonts/italics_font = ExtResource("5_tkxuq")
+theme_override_fonts/mono_font = ExtResource("2_2rrwh")
+theme_override_font_sizes/normal_font_size = 13
+theme_override_font_sizes/bold_font_size = 13
+theme_override_font_sizes/bold_italics_font_size = 13
+theme_override_font_sizes/italics_font_size = 13
+theme_override_font_sizes/mono_font_size = 13
+bbcode_enabled = true
+text = "debug text here
+[color=red]debug[/color] text here"
+fit_content = true
+
+[node name="PickerCanvasLayer" type="CanvasLayer" parent="." unique_id=509332395]
+unique_name_in_owner = true
+editor_description = "This should be above pretty much everything"
+layer = 4095
+
+[node name="ConsolePicker" type="Node2D" parent="PickerCanvasLayer" unique_id=793085209 groups=["CRABBYCONSOLE_PICKER_SKIP"]]
+unique_name_in_owner = true
+z_index = 4050
+position = Vector2(500, 500)
+script = ExtResource("3_ir0fo")
+
+[node name="PickerTri" type="Polygon2D" parent="PickerCanvasLayer/ConsolePicker" unique_id=634568725 groups=["CRABBYCONSOLE_PICKER_SKIP"]]
+unique_name_in_owner = true
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(0, 0, 0, 8, 8, 0)
+
+[node name="PickerLabel" type="Label" parent="PickerCanvasLayer/ConsolePicker" unique_id=286084692 groups=["CRABBYCONSOLE_PICKER_SKIP"]]
+unique_name_in_owner = true
+offset_left = 16.0
+offset_right = 416.0
+offset_bottom = 75.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_2rrwh")
+text = "node path here node path here node path here node path here node path here "
+autowrap_mode = 3
+
+[node name="PickerSlotLabel" type="Label" parent="PickerCanvasLayer/ConsolePicker" unique_id=1482719173 groups=["CRABBYCONSOLE_PICKER_SKIP"]]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -210.0
+offset_right = -10.0
+offset_bottom = 75.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.36, 0.7226666, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("2_2rrwh")
+theme_override_font_sizes/font_size = 13
+text = "[5/30]
+(scroll to change slot)"
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="PickerPanel" type="MarginContainer" parent="PickerCanvasLayer/ConsolePicker" unique_id=110943801 groups=["CRABBYCONSOLE_PICKER_SKIP"]]
+unique_name_in_owner = true
+top_level = true
+offset_left = 500.0
+offset_top = 300.0
+offset_right = 668.98
+offset_bottom = 416.0
+mouse_filter = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Panel" type="Panel" parent="PickerCanvasLayer/ConsolePicker/PickerPanel" unique_id=1741517671 groups=["CRABBYCONSOLE_PICKER_SKIP"]]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ir0fo")
+
+[node name="DebugDrawCanvasLayer" type="CanvasLayer" parent="." unique_id=340951851]
+unique_name_in_owner = true
+layer = 1023
+
+[node name="DebugDrawer" type="CrabConsoleDebugDrawer" parent="DebugDrawCanvasLayer" unique_id=675186092]
+unique_name_in_owner = true
+
+[node name="DebugDrawer3D" type="MeshInstance3D" parent="DebugDrawCanvasLayer/DebugDrawer" unique_id=729253604]
+unique_name_in_owner = true
+material_override = SubResource("StandardMaterial3D_wbulu")
+mesh = SubResource("ImmediateMesh_0uejy")
+
+[node name="ConsoleHealthChecker" type="Node" parent="." unique_id=1939950687]
+script = ExtResource("8_8nurw")

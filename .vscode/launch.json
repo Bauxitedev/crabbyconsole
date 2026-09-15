@@ -1,0 +1,50 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Start Godot game (with Rust support)",
+            "type": "lldb",
+            "request": "launch",
+            // "program": "godot", // you can't do this sadly - it has to be the full path
+            "program": "${input:godotBinPath}", // see "inputs" below
+            "args": [
+                "--path",
+                "godot"
+            ],
+            // "cwd": "${workspaceFolder}",
+            "sourceLanguages": [
+                "rust"
+            ]
+        },
+        {
+            "name": "Attach to Godot (with Rust support)",
+            "type": "lldb",
+            "request": "attach",
+            "pid": "${input:pickGodotProcess}",
+            "sourceLanguages": [
+                "rust"
+            ]
+            // TODO enable cargo workspace support, see https://github.com/vadimcn/codelldb/blob/master/MANUAL.md#cargo-support
+        }
+    ],
+    "inputs": [
+        {
+            "id": "pickGodotProcess",
+            "type": "command",
+            "command": "lldb.pickProcess",
+            "args": {
+                "initCommands": [], // Eg., platform select/connect commands.
+                "filter": "godot|crabby" // RegExp to filter processes to.
+            }
+        },
+        {
+            "id": "godotBinPath",
+            "type": "promptString",
+            "description": "Full path to Godot executable",
+            "default": "~/.local/bin/godot" // on Windows this will be different
+        }
+    ]
+}

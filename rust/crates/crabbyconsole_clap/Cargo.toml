@@ -1,0 +1,16 @@
+[package]
+name = "crabbyconsole_clap"
+version.workspace = true
+edition = "2024"
+license.workspace = true
+
+[dependencies]
+crabbyconsole_misc = { path = "../crabbyconsole_misc" }
+
+clap = { workspace = true }
+godot = { workspace = true }
+tap = { workspace = true }
+clap_complete = { workspace = true }
+ordered-float = { workspace = true }
+tracing = { workspace = true }
+color-eyre = { workspace = true }

@@ -1,0 +1,13 @@
+profile.json.gz
+/godot/out/
+/rust/out/
+/issue/
+/issues/
+*.blend1
+/out/
+/profiling/
+/godot/demo/ffmpeg_stderr.log
+/godot/out.bin
+godot/demo/out/
+godot/addons/crabbyconsole/bin/
+godot/export_presets.cfg

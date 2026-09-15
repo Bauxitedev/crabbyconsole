@@ -1,0 +1,5 @@
+[package]
+name = "crabbyconsole_integration_tests_util"
+version.workspace = true
+edition = "2024"
+license.workspace = true

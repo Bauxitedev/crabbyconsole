@@ -1,0 +1,13 @@
+[package]
+name = "crabbyconsole_macros"
+version.workspace = true
+edition = "2024"
+license.workspace = true
+
+[lib]
+proc-macro = true
+
+# TODO use workspace depencies here instead?
+[dependencies]
+syn = "2.0.117"
+quote = "1.0.45"

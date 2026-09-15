@@ -1,0 +1,11 @@
+[package]
+name = "crabbyconsole_godot_api"
+version.workspace = true
+edition = "2024"
+license.workspace = true
+
+[dependencies]
+serde_json = { workspace = true }
+serde = { workspace = true }
+godot = { workspace = true }
+color-eyre = { workspace = true }

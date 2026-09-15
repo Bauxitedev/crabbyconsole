@@ -1,0 +1,4 @@
+nav:
+- Home: index.md
+- CrabbyConsole: crabbyconsole
+- API Reference: api_reference

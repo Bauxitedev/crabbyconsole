@@ -1,0 +1,21 @@
+/* define custom theme color, see https://zensical.org/docs/setup/colors/#custom-colors-docsstylesheetsextracss */
+:root>* {
+    --md-primary-fg-color: #b56c40;
+    --md-primary-fg-color--light: #ffeaa0;
+    --md-primary-fg-color--dark: #754f19;
+}
+
+/* add pill class you can do <div class="pill">...</div> */
+.pill {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 2px;
+    margin-right: 2px;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    font-weight: bold;
+    background-color: #777;
+    color: white;
+}

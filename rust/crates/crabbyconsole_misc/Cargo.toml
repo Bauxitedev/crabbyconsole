@@ -1,0 +1,34 @@
+[package]
+name = "crabbyconsole_misc"
+version.workspace = true
+edition = "2024"
+license.workspace = true
+
+[features]
+default = []
+tracy = ["dep:tracing-tracy"]
+
+[dependencies]
+tracing-tracy = { workspace = true, optional = true }
+tracing = { workspace = true }
+sysinfo = { workspace = true }
+godot = { workspace = true }
+indexmap = { workspace = true }
+rand = { workspace = true }
+time = { workspace = true }
+tap = { workspace = true }
+ordered-float = { workspace = true }
+csv = { workspace = true }
+tokio = { workspace = true }
+bon = { workspace = true }
+flume = { workspace = true }
+rayon = { workspace = true }
+async-executor = { workspace = true }
+scopeguard = { workspace = true }
+tracing-subscriber = { workspace = true }
+tracing-error = { workspace = true }
+paste = { workspace = true }
+color-eyre = { workspace = true }
+futures = { workspace = true }
+clap = { workspace = true }
+mini-moka = { workspace = true }

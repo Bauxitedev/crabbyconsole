@@ -1,0 +1,24 @@
+[unstable]
+min-publish-age = true
+# ^ may not be needed, see https://github.com/rust-lang/cargo/pull/17335
+# update - it may be needed after all, so let's keep it
+
+# PROTIP: to check if it's working, run `cargo update --dry-run`. it will say something like this:
+#    error: failed to select a version for the requirement `chacha20 = "^0.10.0"`
+#      version 0.10.0 is yanked
+#      version 0.10.1 is yanked
+#      version 0.10.2 is too new (published 10 days ago, minimum age 14 days)
+#    location searched: crates.io index
+#    required by package `rand v0.10.1`
+#        ... which satisfies dependency `rand = "=0.10.1"` of package ...
+#    help: to preserve the min-publish-age, downgrade the requirement to "0.10.0-rc.12"
+#    help: to use too-new packages anyways, re-resolve with `CARGO_RESOLVER_INCOMPATIBLE_PUBLISH_AGE=allow`
+
+
+[registry]
+global-min-publish-age = "14 days"
+
+# little hack so we can get the workspace directory in godot_tests.rs
+# see https://stackoverflow.com/a/78606410
+[env]
+CARGO_WORKSPACE_DIR = { value = "", relative = true }

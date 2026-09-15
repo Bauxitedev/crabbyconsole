@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dulbj0vah4svu"]
+
+[ext_resource type="Texture2D" uid="uid://bg5xecb5knq5v" path="res://demo/textures/fish_brown_outline.svg" id="1_hlumg"]
+
+[node name="Test Scene With Spaces" type="Node2D" unique_id=765603604]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1572124238]
+position = Vector2(362, 399)
+texture = ExtResource("1_hlumg")

@@ -1,0 +1,46 @@
+[package]
+name = "crabbyconsole_core"
+version.workspace = true
+edition = "2024"
+license.workspace = true
+
+[features]
+default = []
+tracy = [
+    "dep:tracing-tracy",
+    "crabbyconsole_misc/tracy", # will enable the `tracy` feature on `crabbyconsole_misc` only if it's enabled on `crabbyconsole_core`
+]
+
+[dependencies]
+crabbyconsole_misc = { path = "../crabbyconsole_misc" }
+crabbyconsole_godot_api = { path = "../crabbyconsole_godot_api" }
+crabbyconsole_clap = { path = "../crabbyconsole_clap" }
+
+tracing-tracy = { workspace = true, optional = true } 
+color-eyre = { workspace = true }
+indexmap = { workspace = true }
+godot = { workspace = true }
+scopeguard = { workspace = true }
+flume = { workspace = true }
+tracing = { workspace = true }
+tokio = { workspace = true }
+clap = { workspace = true }
+clap_complete = { workspace = true }
+futures = { workspace = true }
+futures-lite = { workspace = true }
+tap = { workspace = true }
+tokio-util = { workspace = true }
+future-timing = { workspace = true }
+regex = { workspace = true }
+time = { workspace = true }
+thiserror = { workspace = true }
+http = { workspace = true }
+rand = { workspace = true }
+csv = { workspace = true }
+serde = { workspace = true }
+task-local = { workspace = true }
+mini-moka = { workspace = true }
+image = { workspace = true }
+plotters = { workspace = true }
+ordered-float = { workspace = true }
+num-traits = { workspace = true }
