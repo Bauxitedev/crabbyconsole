@@ -26,10 +26,14 @@ jobs:
       - name: Install Nextest
         uses: taiki-e/install-action@fa23953489c080190314742a9b907f8e97c6767c
         with:
-          tool: nextest@0.9.144
+          tool: nextest@0.9.143
 
       - name: Build (release)
         run: just build-release
+
+      - name: Strip to reduce size
+        working_directory: ./rust/target/release
+        run: strip *.so
 
       - name: Copy library 
         run: just copy-so-release
@@ -43,4 +47,9 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: crabbyconsole_linux
-          path: godot/addons
+          # hack: include a dummy file to preserve `addons` folder in .zip.
+          # see https://github.com/actions/upload-artifact/issues/174
+          path: |
+            godot/addons
+            godot/.gitignore 
+          if-no-files-found: error
