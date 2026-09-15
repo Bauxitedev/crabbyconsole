@@ -21,6 +21,10 @@ watch-rwdi:
 
 ################################
 
+# Import the project, run this first before running any test (if it crashes, run it again)
+import-project:
+    godot --path godot --import --headless
+
 # this runs both unit tests and integration tests.
 # it calls `build-rwdi` first, to ensure CrabConsoleTestRunner is up to date
 test-rwdi *args: build-rwdi
