@@ -19,12 +19,13 @@ CrabbyConsole is written in Rust. To compile it:
 
 To run unit and integration tests:
 
-0. [Install Just](https://github.com/casey/just) (version 1.32.0+) if you don't have it yet.
-0. [Install Nextest](https://nexte.st/) if you don't have it yet.
-0. Ensure `godot` is in your `PATH`. This is needed, because the integration tests need to start Godot as part of the testing process. If you have multiple versions of Godot installed, you can set an environment variable `GODOT4_BIN` to point it to the correct version of Godot.
+1. [Install Just](https://github.com/casey/just) (version 1.32.0+) if you don't have it yet.
+1. [Install Nextest](https://nexte.st/) if you don't have it yet.
+1. Ensure `godot` is in your `PATH`. This is needed, because the integration tests need to start Godot as part of the testing process. If you have multiple versions of Godot installed, you can set an environment variable `GODOT4_BIN` to point it to the correct version of Godot.
 1. Go to the root folder of the repo.
 1. Ensure you compiled CrabbyConsole first and copied/symlinked the library file, see section [Compiling](#compiling).
-2. Run `just test-release`. (or `GODOT4_BIN=/path/to/your/godot just test-release` if you specify a custom Godot version)
+1. Also ensure you've opened the project in Godot at least once. If not, you can run `just import-project` to automate this step.
+1. Run `just test-release`. (or `GODOT4_BIN=/path/to/your/godot just test-release` if you specify a custom Godot version)
 
 !!! warning "Warning"
     For reasons unbeknownst to man, compiling the tests on Linux can be extremely slow. To mitigate this, [install the `mold` linker](https://github.com/rui314/mold) and run the tests using it like this:

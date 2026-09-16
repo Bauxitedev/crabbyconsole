@@ -64,7 +64,7 @@ jobs:
           just copy-so-release
           just copy-dll-release
 
-      - name: Import Godot project
+      - name: Import Godot project (only needed for testing)
         run: just import-project
 
       - name: Run tests (release)
