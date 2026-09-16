@@ -155,7 +155,7 @@ In this case, it reloads the console itself, so it will go back to its initial s
 
 Sometimes, you want to apply an operation to a specific node in a scene, but it's hard to find the specific node you're looking for. It could be that there are many nodes in the scene that have a similar name or type, making it hard to find them using `:node find`. To fix that, you can use the node picker.
 
-To get started, open the CrabbyConsole demo project in Godot, run it, and click <span class="pill">...</span> next to the text input of the console to open the node picker. Then, select the kind of node you want to pick: either `Control`, `Node2D`, or `Node3D`.
+To get started, open the CrabbyConsole demo project in Godot[^2]. Once you've opened it, run the game, and click <span class="pill">...</span> next to the text input of the console to open the node picker. Then, select the kind of node you want to pick: either `Control`, `Node2D`, or `Node3D`.
 
 Now use your mouse to pick a node:
 
@@ -184,3 +184,4 @@ ball.scale *= 4
 ...to make it really big.
 
 [^1]: Probably because you put him upside down.
+[^2]: The demo project can only be found in the `godot/demo/` folder in the Git repository, not in the release zip file. You'll have to [download or clone the repo](https://github.com/Bauxitedev/crabbyconsole), then extract the `addons` folder from the [release zip file](https://github.com/Bauxitedev/crabbyconsole/releases) on top of the `addons` folder from the repo, overwriting it. This ensures the compiled binaries are placed in their correct folders. For more details, [see the readme](https://github.com/Bauxitedev/crabbyconsole/blob/main/godot/demo/README.md).

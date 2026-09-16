@@ -11,7 +11,7 @@ CrabbyConsole is written in Rust. To compile it:
 1. Go to the `rust` folder in the repo.
 2. Run `cargo build --lib --profile release`[^1]. This will produce a file called `libcrabbyconsole.so` or `crabbyconsole.dll` in `rust/target/release/`, depending on your OS.
 3.  Copy (or symlink) it to the `addons/crabbyconsole/bin/` folder.
-4. Now you can open the Godot project and it should load the module.
+4. Now you can open the Godot project, found in the `godot` folder, and it should load the GDExtension you just compiled.
 
 [^1]: You can also run `cargo build --lib --profile release-with-debug` instead to get debug information - useful for getting better stacktraces and profiling. In that case, you can find the library file in `rust/target/release-with-debug/`.
 

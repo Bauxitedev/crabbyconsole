@@ -58,6 +58,7 @@ jobs:
       - uses: actions/upload-pages-artifact@98ef48e41587a300b82de4cf298aa98b57b2faae
         with:
           path: docs/site
+          retention-days: 1 # no need to keep these around, the site remains alive anyway
 
       - uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346
         id: deployment
