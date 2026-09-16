@@ -70,6 +70,11 @@ jobs:
       - name: Run tests (release)
         run: just test-release
 
+      - name: Copy licenses to addon folder (required for Godot Asset Store)
+        run: |
+          cp LICENSE-APACHE godot/addons/crabbyconsole/
+          cp LICENSE-MIT godot/addons/crabbyconsole/
+
       - name: Upload addons folder
         # working-directory: .
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
