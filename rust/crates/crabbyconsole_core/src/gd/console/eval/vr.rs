@@ -39,7 +39,7 @@ pub fn enter_vr(mut console: AsyncGd<CrabConsole>) -> Result<Variant, Report> {
     // Create 3D plane to put the console on
     let mut sprite = Sprite3D::new_alloc();
     let mut viewport = SubViewport::new_alloc();
-    viewport.set_size(Vector2i::new(960, 540)); // 720p may be too big
+    viewport.set_size(Vector2i::new(1280, 720)); // 540p may be too small, doesn't fit a lot of text
     viewport.set_transparent_background(true);
 
     // Add it to the root
