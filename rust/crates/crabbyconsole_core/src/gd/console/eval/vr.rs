@@ -9,7 +9,7 @@ use crabbyconsole_misc::{
 };
 use godot::{
     classes::{
-        Camera3D, InputEventKey, Sprite3D, SubViewport, ViewportTexture, XrCamera3D,
+        Camera3D, InputEventKey, Sprite3D, SubViewport, ViewportTexture, XrCamera3D, XrServer,
         sprite_base_3d::DrawFlags,
     },
     prelude::*,
@@ -48,8 +48,9 @@ pub fn enter_vr(mut console: AsyncGd<CrabConsole>) -> Result<Variant, Report> {
 
     let vp_tex: Gd<ViewportTexture> = viewport.get_texture().expect("no viewport texture");
 
-    // Scale multiplier - TODO make it abide by `world_scale` from XROrigin3D.
-    let scale_mult = 1.0;
+    // Scale multiplier (reflects `world_scale` in your XROrigin3D)
+    let world_scale = XrServer::singleton().get_world_scale() as f32;
+    tracing::info!(world_scale);
 
     // Align quad to camera (with scale set to ONE, regardless of `scale_mult`)
     //
@@ -62,7 +63,7 @@ pub fn enter_vr(mut console: AsyncGd<CrabConsole>) -> Result<Variant, Report> {
         cam_xr.get_global_position(),
     ));
     // Put the console at 0.6 meters distance from the camera
-    sprite.translate_object_local(Vector3::new(0., 0., -0.6) * scale_mult);
+    sprite.translate_object_local(Vector3::new(0., 0., -0.6) * world_scale);
     sprite.set_texture(&vp_tex);
 
     // Check Sprite3D docs to see the default values of all draw flags
@@ -71,7 +72,7 @@ pub fn enter_vr(mut console: AsyncGd<CrabConsole>) -> Result<Variant, Report> {
 
     // Calculate pixel size based on height, so it can become wider without the text becoming smaller
     // Note - do not touch `sprite.scale`, we want `:cons vr scale` to be unaffected by `scale_mult`
-    let world_height = 0.3 * scale_mult; // meters 
+    let world_height = 0.3 * world_scale; // meters 
     let tex_height = vp_tex.get_height();
     sprite.set_pixel_size(world_height / tex_height as f32);
 
