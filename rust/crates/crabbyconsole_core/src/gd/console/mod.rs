@@ -129,6 +129,7 @@ pub struct CrabConsole {
     last_watch_label_update: Instant,
 
     vr_state: Option<VrState>,
+    is_ready_for_node_ops: bool, // if true, it's safe to call add_child() on CrabbyConsole (this is NOT the same as is_node_ready())
 }
 
 #[godot_api]
@@ -223,6 +224,7 @@ impl INode for CrabConsole {
                 script
             }),
             vr_state: None,
+            is_ready_for_node_ops: false,
         }
     }
 
@@ -276,6 +278,14 @@ impl INode for CrabConsole {
         }
 
         self.last_frame_time.init((Instant::now(), 0.0));
+
+        // Set is_ready_for_node_ops to true one frame later
+        let mut this = self.to_gd();
+        self.base()
+            .linked_callable("set_ready_for_node_ops", move |_| {
+                this.bind_mut().is_ready_for_node_ops = true;
+            })
+            .call_deferred(&[]);
     }
 
     #[tracing::instrument(skip_all)] // <-- TODO are you sure you want to instrument this? it's called every frame
@@ -562,11 +572,17 @@ impl CrabConsole {
     /// You can control its size and other parameters by typing `:cons vr`.
     #[func(gd_self)]
     pub fn enter_vr(this: Gd<Self>) -> Variant {
-        // May need ensure_ready() here?
-        match enter_vr(AsyncGd(this)) {
+        match try {
+            // enter_vr does not work if we aren't ready yet
+            tracing::info!("checking if CC is ready for VR...");
+            this.bind().ensure_ready("enter_vr")?;
+            tracing::info!("CC is ready for VR, entering...");
+            enter_vr(AsyncGd(this))?
+        } {
             Ok(v) => v,
             Err(err) => {
                 tracing::warn!(?err);
+                push_error(&[Variant::from(format!("failed to enter VR mode: {err}"))]);
                 Variant::from(godot::global::Error::ERR_ALREADY_EXISTS)
             }
         }
@@ -575,7 +591,7 @@ impl CrabConsole {
     /// Call this in any public-facing method that uses any `OnReady<>` field to ensure people don't call it before they're ready.
     /// Else the `OnReady<>` fields will panic when you try to use them.
     fn ensure_ready(&self, method_name: &str) -> Result<(), Report> {
-        if !self.base().is_node_ready() {
+        if !self.is_ready_for_node_ops {
             // This check prevents a panic later, since we need to use OnReady<> fields on Self
             return Err(eyre!(
                 "CrabbyConsole.{method_name}(...) cannot be used before CrabbyConsole._ready() - please wait one frame and try again (or call it like CrabbyConsole.{method_name}.call_deferred(...))",

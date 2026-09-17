@@ -55,7 +55,7 @@ pub fn enter_vr(mut console: AsyncGd<CrabConsole>) -> Result<Variant, Report> {
 
     // Check Sprite3D docs to see the default values of all draw flags
     sprite.set_draw_flag(DrawFlags::DISABLE_DEPTH_TEST, true);
-    sprite.set_draw_flag(DrawFlags::DOUBLE_SIDED, false);
+    sprite.set_draw_flag(DrawFlags::DOUBLE_SIDED, true); // may be default already but eh
 
     // Calculate pixel size based on height, so it can become wider without the text becoming smaller
     let world_height = 0.3; // meters 
@@ -98,6 +98,9 @@ pub fn enter_vr(mut console: AsyncGd<CrabConsole>) -> Result<Variant, Report> {
         sprite_parent: sprite_parent.upcast(),
         follow_camera: false,
     });
+
+    // Last, but certainly not least, make the console actually visible:
+    console.bind_mut().nodes.canvas_layer.show();
 
     Ok(Variant::from("VR mode enabled."))
 }
@@ -169,6 +172,12 @@ impl ClapSubAction for VrAction {
                 } else {
                     "Unfollowing camera"
                 }))
+            }
+            VrAction::Expand => {
+                // Move the vsplitter all the way down
+                console.bind_mut().nodes.vsplitter.set_split_offset(999_999); // don't use i32::MAX here, or it overflows
+
+                Ok(Variant::nil())
             }
         }
     }

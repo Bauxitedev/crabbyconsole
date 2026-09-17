@@ -19,5 +19,8 @@ pub enum VrAction {
         /// Whether the console should move with the camera or not
         follow: BoolArg,
     },
+
+    /// Expands the console to fill the entire height of the viewport (useful for VR, since there is no mouse support at the moment)
+    Expand,
 }
 // TODO add command :cons vr res 1280 720?
