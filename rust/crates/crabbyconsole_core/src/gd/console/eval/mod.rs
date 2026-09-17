@@ -319,7 +319,11 @@ impl CrabConsole {
     }
 
     /// Finds all nodes whose path contains `nodepath_needle`, optionally filtered by type `typ`.
+    ///
     /// Useful if nodes have duplicate names.
+    ///
+    /// If `nodepath_needle` == "", it will return all nodes in the scene (optionally filtered by type `typ`),
+    /// because `node.get_path().to_string().contains("")` is always `true`.
     pub(super) fn find_nodes_by_nodepath_needle(
         self: &AsyncGd<Self>,
         nodepath_needle: &str,

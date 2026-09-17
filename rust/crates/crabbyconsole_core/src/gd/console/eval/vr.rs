@@ -8,7 +8,10 @@ use crabbyconsole_misc::{
     util::get_camera_3d,
 };
 use godot::{
-    classes::{InputEventKey, Sprite3D, SubViewport, ViewportTexture, sprite_base_3d::DrawFlags},
+    classes::{
+        Camera3D, InputEventKey, Sprite3D, SubViewport, ViewportTexture, XrCamera3D,
+        sprite_base_3d::DrawFlags,
+    },
     prelude::*,
 };
 
@@ -30,7 +33,8 @@ pub fn enter_vr(mut console: AsyncGd<CrabConsole>) -> Result<Variant, Report> {
         "can't enable VR mode - already enabled"
     );
 
-    let vr_camera = get_camera_3d().ok_or_eyre("no Camera3D in the scene, can't enter VR mode")?;
+    let cam_xr = find_camera_xr(&console)
+        .ok_or_eyre("no XRCamera3D nor Camera3D in the scene, can't enter VR mode")?;
 
     // Create 3D plane to put the console on
     let mut sprite = Sprite3D::new_alloc();
@@ -44,13 +48,21 @@ pub fn enter_vr(mut console: AsyncGd<CrabConsole>) -> Result<Variant, Report> {
 
     let vp_tex: Gd<ViewportTexture> = viewport.get_texture().expect("no viewport texture");
 
-    // Align quad to camera (with scale set to ONE)
+    // Scale multiplier - TODO make it abide by `world_scale` from XROrigin3D.
+    let scale_mult = 1.0;
+
+    // Align quad to camera (with scale set to ONE, regardless of `scale_mult`)
+    //
+    // Note - XROrigin3D and its child node XRCamera3D aren't intended to be scaled like a Node3D.
+    // Instead, users are expected to change the `world_scale` prop instead.
+    // However, in case the user doesn't know about this, we orthonormalize the camera transform anyway.
+    // See https://github.com/godotengine/godot/issues/101241#issuecomment-3166116746
     sprite.set_global_transform(Transform3D::new(
-        vr_camera.get_global_transform().basis.orthonormalized(),
-        vr_camera.get_global_position(),
+        cam_xr.get_global_transform().basis.orthonormalized(),
+        cam_xr.get_global_position(),
     ));
     // Put the console at 0.6 meters distance from the camera
-    sprite.translate_object_local(Vector3::new(0., 0., -0.6));
+    sprite.translate_object_local(Vector3::new(0., 0., -0.6) * scale_mult);
     sprite.set_texture(&vp_tex);
 
     // Check Sprite3D docs to see the default values of all draw flags
@@ -58,7 +70,8 @@ pub fn enter_vr(mut console: AsyncGd<CrabConsole>) -> Result<Variant, Report> {
     sprite.set_draw_flag(DrawFlags::DOUBLE_SIDED, true); // may be default already but eh
 
     // Calculate pixel size based on height, so it can become wider without the text becoming smaller
-    let world_height = 0.3; // meters 
+    // Note - do not touch `sprite.scale`, we want `:cons vr scale` to be unaffected by `scale_mult`
+    let world_height = 0.3 * scale_mult; // meters 
     let tex_height = vp_tex.get_height();
     sprite.set_pixel_size(world_height / tex_height as f32);
 
@@ -93,6 +106,7 @@ pub fn enter_vr(mut console: AsyncGd<CrabConsole>) -> Result<Variant, Report> {
         })
         .spawn();
 
+    // Store VrState to indicate VR mode has been activated
     console.bind_mut().vr_state = Some(VrState {
         sprite,
         sprite_parent: sprite_parent.upcast(),
@@ -103,6 +117,60 @@ pub fn enter_vr(mut console: AsyncGd<CrabConsole>) -> Result<Variant, Report> {
     console.bind_mut().nodes.canvas_layer.show();
 
     Ok(Variant::from("VR mode enabled."))
+}
+
+/// This method will try to find a `XRCamera3D` in the scene.
+///
+/// If it fails, it will try to find a `Camera3D` as fallback.
+/// This is useful for debugging VR mode outside of VR.
+///
+/// If that also fails, it will return `None`.
+///
+/// The method loops over all nodes and tries to find, in order of preference:
+/// 1. `XRCamera3D` with `current` == true
+/// 2. `XRCamera3D` with `current` == false
+/// 3. `Camera3D` with `current` == true
+/// 4. `Camera3D` with `current` == false
+///
+/// Since we cannot make any assumptions about the game's camera setup,
+/// there may be many inactive cameras in the scene. Think e.g.:
+/// - cinematic camera systems
+/// - split screen
+/// - security cameras
+///
+/// So we need to ignore those.
+#[tracing::instrument(skip_all)]
+fn find_camera_xr(console: &AsyncGd<CrabConsole>) -> Option<Gd<Camera3D>> {
+    let all_nodes = console.find_nodes_by_nodepath_needle("", None);
+
+    let mut candidates = all_nodes
+        .iter()
+        .filter_map(|node| {
+            // fast clone
+            if let Ok(cam_xr) = node.clone().try_cast::<XrCamera3D>() {
+                if cam_xr.is_current() {
+                    Some((cam_xr.upcast(), 0)) // highest rank
+                } else {
+                    Some((cam_xr.upcast(), 1)) // high rank
+                }
+            } else if let Ok(cam_3d) = node.clone().try_cast::<Camera3D>() {
+                if cam_3d.is_current() {
+                    Some((cam_3d.upcast(), 2)) // low rank
+                } else {
+                    Some((cam_3d.upcast(), 3)) // lowest rank
+                }
+            } else {
+                // node is not XrCamera3D nor Camera3D, so skip it
+                None
+            }
+        })
+        .collect::<Vec<(Gd<Camera3D>, i32)>>();
+    candidates.sort_by_key(|(_, rank)| *rank);
+    tracing::info!(?candidates);
+    let mut candidates = candidates.into_iter().map(|(cam, _)| cam); // throw rank away, only used for sorting
+
+    // If no candidates, next() will return None
+    candidates.next()
 }
 
 impl ClapSubAction for VrAction {
@@ -125,6 +193,10 @@ impl ClapSubAction for VrAction {
             }
 
             VrAction::Follow { follow } => {
+                // TODO maybe prioritize OverrideCamera3D here? for debugging?
+                let cam_xr = find_camera_xr(&console)
+                    .ok_or_eyre("no XRCamera3D nor Camera3D in the scene, can't enter VR mode")?;
+
                 let Some(VrState {
                     sprite,
                     sprite_parent,
@@ -135,9 +207,6 @@ impl ClapSubAction for VrAction {
                 else {
                     bail!("please enable VR mode first");
                 };
-
-                // TODO maybe prioritize OverrideCamera3D here? for debugging?
-                let vr_camera = get_camera_3d().ok_or_eyre("no Camera3D in scene")?;
 
                 let new_value = match follow {
                     BoolArg::Set(value) => value,
@@ -155,7 +224,7 @@ impl ClapSubAction for VrAction {
                     (false, true) => {
                         // parent sprite to camera
                         sprite
-                            .reparent_ex(&vr_camera)
+                            .reparent_ex(&cam_xr)
                             .keep_global_transform(true)
                             .done();
                     }
