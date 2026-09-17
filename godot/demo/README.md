@@ -1,6 +1,6 @@
 # CrabbyConsole Demo Project
 
-This is a demo project demonstrates CrabbyConsole's abilities.
+This is a demo project demonstrates CrabbyConsole's abilities. It was made in Godot v4.6.2, earlier versions may not work.
 
 ## Setup
 There are two ways to set it up, you can pick either the easy way, or the hard way:

@@ -22,7 +22,7 @@ Features:
 - VR support (experimental - see section [VR support](../40_misc/11_vr.md))
 - Fully open source
 - Lightweight: small in filesize, uses little CPU and RAM 
-- AI-free documentation: no LLM output is used in this documentation, it is 100% written by hand
+- AI-free documentation: no LLM output is used in this documentation, it is 100% written by hand (and no vibe coding either)
 
 ## License
 
