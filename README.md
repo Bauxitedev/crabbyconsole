@@ -35,17 +35,17 @@ A small demo:
 
 How to add CrabbyConsole to your game:
 
-1. [Download CrabbyConsole from the Releases section on GitHub](https://github.com/Bauxitedev/crabbyconsole/releases) (or Asset Store, coming soon).
-1. Copy the `addons` folder from the zip file to your Godot game. 
-2. In Godot, go to your project settings and enable the `CrabbyConsole` plugin. 
-4. The console is now active. Start your game and press ~ (tilde) to open the console:
+1. Download CrabbyConsole from the [Releases section on GitHub](https://github.com/Bauxitedev/crabbyconsole/releases) or the [Godot Asset Store](https://store.godotengine.org/asset/bauxitedev/crabbyconsole/).
+1. Copy the `addons` folder from the zip file to your Godot game. (If you install CrabbyConsole from the in-editor Asset Store, this will be done automatically.)
+1. In Godot, go to your project settings and enable the `CrabbyConsole` plugin. 
+1. The console is now active. Start your game and press ~ (tilde) to open the console:
     ![Console](docs/pages/crabbyconsole/10_console/images/console.png)
-5. Type `:help` to see which commands you can run. Any command not starting with `:` is treated as GDScript, so you can run pretty much anything you could write in your game's GDScript code.
+1. Type `:help` to see which commands you can run. Any command not starting with `:` is treated as GDScript, so you can run pretty much anything you could write in your game's GDScript code.
 
 The console should just work at this point, no further setup needed - if it doesn't, make sure you're on at least Godot 4.6 and you're using a supported platform (see below for supported platforms). If it still doesn't work, that's a bug, please open an issue.
 
 > [!CAUTION]
-> CrabbyConsole is alpha software, expect things to change and break.
+> CrabbyConsole is beta software, expect things to change and break.
 
 
 
