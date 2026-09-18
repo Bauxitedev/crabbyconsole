@@ -411,7 +411,7 @@ dependencies = [
 
 [[package]]
 name = "crabbyconsole"
-version = "0.5.0"
+version = "0.5.1"
 dependencies = [
  "crabbyconsole_clap",
  "crabbyconsole_core",
@@ -425,7 +425,7 @@ dependencies = [
 
 [[package]]
 name = "crabbyconsole_clap"
-version = "0.5.0"
+version = "0.5.1"
 dependencies = [
  "clap",
  "clap_complete",
@@ -439,7 +439,7 @@ dependencies = [
 
 [[package]]
 name = "crabbyconsole_core"
-version = "0.5.0"
+version = "0.5.1"
 dependencies = [
  "clap",
  "clap_complete",
@@ -476,7 +476,7 @@ dependencies = [
 
 [[package]]
 name = "crabbyconsole_godot_api"
-version = "0.5.0"
+version = "0.5.1"
 dependencies = [
  "color-eyre",
  "godot",
@@ -486,7 +486,7 @@ dependencies = [
 
 [[package]]
 name = "crabbyconsole_integration_tests"
-version = "0.5.0"
+version = "0.5.1"
 dependencies = [
  "crabbyconsole_integration_tests_util",
  "libtest-mimic",
@@ -495,11 +495,11 @@ dependencies = [
 
 [[package]]
 name = "crabbyconsole_integration_tests_util"
-version = "0.5.0"
+version = "0.5.1"
 
 [[package]]
 name = "crabbyconsole_macros"
-version = "0.5.0"
+version = "0.5.1"
 dependencies = [
  "quote",
  "syn",
@@ -507,7 +507,7 @@ dependencies = [
 
 [[package]]
 name = "crabbyconsole_misc"
-version = "0.5.0"
+version = "0.5.1"
 dependencies = [
  "async-executor",
  "bon",
@@ -536,7 +536,7 @@ dependencies = [
 
 [[package]]
 name = "crabbyconsole_test_registry"
-version = "0.5.0"
+version = "0.5.1"
 dependencies = [
  "crabbyconsole_core",
  "crabbyconsole_integration_tests_util",
