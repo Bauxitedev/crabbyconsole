@@ -69,6 +69,7 @@ pub fn enter_vr(mut console: AsyncGd<CrabConsole>) -> Result<Variant, Report> {
     // Check Sprite3D docs to see the default values of all draw flags
     sprite.set_draw_flag(DrawFlags::DISABLE_DEPTH_TEST, true);
     sprite.set_draw_flag(DrawFlags::DOUBLE_SIDED, true); // may be default already but eh
+    sprite.set_render_priority(127); // 127 = highest prio, to ensure it draws on top of all other transparent things
 
     // Calculate pixel size based on height, so it can become wider without the text becoming smaller
     // Note - do not touch `sprite.scale`, we want `:cons vr scale` to be unaffected by `scale_mult`
