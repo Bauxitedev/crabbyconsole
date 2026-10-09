@@ -38,7 +38,7 @@ You can stop the server with `:cons remote stop`. Make sure to stop the server w
 
 ## Connecting from WSL
 
-If you game is running on Windows, and you want to connect to it from WSL, you need to take extra care. [You can't just connect to `localhost`, it won't work](https://learn.microsoft.com/en-us/windows/wsl/networking#accessing-windows-networking-apps-from-linux-host-ip). Instead, do this:
+If your game is running on Windows, and you want to connect to it from WSL, you need to take extra care. [You can't just connect to `localhost`, it won't work](https://learn.microsoft.com/en-us/windows/wsl/networking#accessing-windows-networking-apps-from-linux-host-ip). Instead, do this:
 
 1. In WSL, run this to see the IP address of the Windows host. Write it down somewhere.
 ```bash

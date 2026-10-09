@@ -80,7 +80,7 @@ Remember, this can be used for **any signal on any node**, so this is very usefu
 
 ----
 
-There are also some built in commands that can be useful to watch. For example, to watch key presses, you can do:
+There are also some built-in commands that can be useful to watch. For example, to watch key presses, you can do:
 
 ```
 :watch add typed :key await
@@ -141,7 +141,7 @@ This can be very useful to visualize textures that change over time; see section
 
 If you watch an expression that returns a `Color`, a little square will appear next to it that shows the actual color.
 
-Now you make your own color picker:
+Now you can make your own color picker:
 ```
 :watch add picker viewport().get_texture().get_image().get_pixelv(cursor_2d())
 ```

@@ -112,7 +112,7 @@ crab.queue_free()
 ```
 Now the crab is gone. Goodbye, crab. :saluting_face:
 
-For you own safety, you should probably unset the variable referencing it as well:
+For your own safety, you should probably unset the variable referencing it as well:
 ```
 :set crab null
 ```

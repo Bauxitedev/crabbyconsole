@@ -4,7 +4,7 @@ icon: lucide/gauge
 
 # Performance
 
-Adding CrabbyConsole to your game shouldn't affect performance a lot. If it does, that's a bug, please open an issue.
+Adding CrabbyConsole to your game shouldn't affect performance much. If it does, that's a bug, please open an issue.
 
 If you have a lot of watches, it's better to combine them into one big watch.
 E.g. instead of doing:

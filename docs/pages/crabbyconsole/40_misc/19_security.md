@@ -48,7 +48,7 @@ To get the value of `a`, use:
 ```
 :get a
 ```
-...because if you would have written just `a`, it would be interpreted as GDScript, so it would fail.
+...because if you had written just `a`, it would be interpreted as GDScript, so it would fail.
 
 !!! tip "Protip 2"
 

@@ -6,7 +6,7 @@ icon: lucide/message-square-code
 
 When you start typing, autocompletion suggestions will show up below the text box. You can press ++tab++ to accept them, and press it again to go to the next suggestion. You can press ++shift+tab++ to go to the previous suggestion.
 
-The autocompletion engine will do its best to try to figure out your intent, so it if you type this:
+The autocompletion engine will do its best to try to figure out your intent, so if you type this:
 ```
 :load main
 ```

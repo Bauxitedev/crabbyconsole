@@ -38,7 +38,7 @@ Then, you can run `:win vsync` to see if VSync is currently enabled or not.
 :sysinfo --pretty
 ```
 
-This prints the CPU model, amount of cores/threads, GPU name, GPU driver version, total RAM amount, Godot version, etc. This is useful for tech support, since it can be copy-pasted and sent to developers for troubleshooting.
+This prints the CPU model, number of cores/threads, GPU name, GPU driver version, total RAM, Godot version, etc. This is useful for tech support, since it can be copy-pasted and sent to developers for troubleshooting.
 
 ### See how much memory your game is using (in megabytes)
 ```
@@ -113,7 +113,7 @@ To remove keybinds, you can use `:key unbind`. For example, to unbind the key ++
 :load res://main.tscn # (1)!
 ```
 
-1.  Replace `res://main.tscn` with the name of an actual name of a scene in your game.
+1.  Replace `res://main.tscn` with the actual name of a scene in your game.
 
 ### Set framerate limit
 ```gdscript title="GDScript"

@@ -51,7 +51,7 @@ Try running this:
 ```
 :par :asleep 1 <> :asleep 2
 ```
-Now it only wait for 2 seconds, because during the first second, the two commands were waiting simultaneously.
+Now it only waits for 2 seconds, because during the first second, the two commands were waiting simultaneously.
 
 
 ## Awaiting signals
@@ -85,7 +85,7 @@ Now try this:
 Now it will beep as soon as you 1. resize the window and then 2. move the mouse outside the window. It has to be in that specific order, or it won't work. 
 
 ### Concurrency
-Same as before, we can use `:par` to await for two things to happen simultaneously.
+Same as before, we can use `:par` to wait for two things to happen simultaneously.
 
 Try this:
 ```
@@ -102,7 +102,7 @@ Finally, we can also combine the two:
 Now it will beep if you resize the window or move the mouse outside the window, regardless of the order.
 
 ## More examples
-Remember, this works for **any signal on any node**, so this is is a powerful way to combine signals together to detect patterns of events in complex ways.
+Remember, this works for **any signal on any node**, so this is a powerful way to combine signals together to detect patterns of events in complex ways.
 
 Here are some more cool examples of what you can do:
 ### Awaiting keys

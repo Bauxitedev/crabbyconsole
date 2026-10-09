@@ -45,7 +45,7 @@ This approach has the following upsides:
 - Tests can be written in Rust and actually run inside of Godot, providing wider test coverage.
 - Tests can be run across many Godot versions automatically.
 - Tests can be run both in the editor build and the exported game.
-- Additionally, thanks to [Nextest's execution model](https://nexte.st/docs/design/why-process-per-test/), every integration test runs it in own isolated process, so if one test crashes, it doesn't take down the others with it.
+- Additionally, thanks to [Nextest's execution model](https://nexte.st/docs/design/why-process-per-test/), every integration test runs in its own isolated process, so if one test crashes, it doesn't take down the others with it.
 
 But there are some downsides as well:
 
@@ -54,13 +54,13 @@ But there are some downsides as well:
 
 ## Tracy
 
-Compile with `--features tracy` feature to use Tracy.
+Compile using the `--features tracy` argument to use Tracy.
 
 How to set it up:
 
 - Set `RUST_LOG` env var to `trace`, otherwise it won't capture all spans/messages.
 - There seems to be a bug in the Tracy app where the `Messages` window occasionally goes missing. Delete the `~/.config/tracy` folder to fix it.
-- It should now just work. On Linux, follow these steps get more detailed information:
+- It should now just work. On Linux, follow these steps to get more detailed information:
     - Run this first:
     ```bash
     echo '-1' | sudo tee /proc/sys/kernel/perf_event_paranoid

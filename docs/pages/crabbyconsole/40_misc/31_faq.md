@@ -88,7 +88,7 @@ CrabbyConsole.eval_blocking.call_deferred("print(1+2)")
 Note: using `call_deferred()` means you cannot return values anymore, so be sure to `print()` them instead. 
 
 !!! question "Why would you do this instead of just `print(1+2)`?"
-    This enables you do procedural code generation, which can be super powerful; it becomes kind of like a macro system.
+    This enables you to do procedural code generation, which can be super powerful; it becomes kind of like a macro system.
 
     Try running this, for example:
     ```gdscript
